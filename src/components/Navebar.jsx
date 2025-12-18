@@ -18,7 +18,7 @@ const Navebar = () => {
             initial={{opacity:0, x:-50}}
             animate={{opacity:1, x:0}}
             transition={{duration:1.2, ease:"easeInOut" }}
-            href="#home" className="bg-linear-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent text-3xl font-semibold opacity-80 transition-all duration-300 hover:opacity-100">Akram</motion.a>
+            href="#home" className="bg-linear-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent text-3xl font-semibold opacity-80 transition-all duration-300 hover:opacity-100 animate-pulse">Akram</motion.a>
 
             <motion.ul
              initial={{opacity:0, y:-50}}
