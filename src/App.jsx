@@ -1,0 +1,32 @@
+import Navebar from './components/Navebar'
+import Hero from './components/Hero'
+import Tech from './components/Tech'
+import Project from './components/Project'
+import Contact from './components/Contact'
+import projectData from './data/projectdata'
+import ProjectHeading from './components/ProjectHeading'
+import Footer from './components/Footer'
+
+const App = () => {
+  return (
+    <>
+      <div className="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+
+
+      <main className='flex flex-col items-center px-4 '>
+        <Navebar />
+        <Hero />
+        <Tech />
+        <ProjectHeading />
+        {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link }) => (
+          <Project Image={Image} title={title} desc={desc} tag1={tag1} tag2={tag2} tag3={tag3} link={link} />
+        ))}
+        <Contact />
+        <Footer />
+      </main>
+       
+    </>
+  )
+}
+
+export default App
