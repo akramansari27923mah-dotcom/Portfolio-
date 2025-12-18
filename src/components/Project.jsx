@@ -1,18 +1,18 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
+const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key}) => {
 
   return (
 
     <>
-      <div className='w-full flex flex-col justify-center items-center py-10 lg:py-5  px-20 gap-y-10'>
+      <div key={key}  className='w-full flex flex-col justify-center items-center py-10 lg:py-5  px-20 gap-y-10'>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           viewport={{ once: true }}
-          key={key} className="card flex flex-col  lg:flex-row justify-center lg:gap-y-0 gap-y-5 items-center gap-x-10">
+           className="card flex flex-col  lg:flex-row justify-center lg:gap-y-0 gap-y-5 items-center gap-x-10">
 
           <div>
             <a target="_blank" href={link}>

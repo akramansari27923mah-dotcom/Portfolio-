@@ -10,16 +10,16 @@ import Footer from './components/Footer'
 const App = () => {
   return (
     <>
-      <div className="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+      <div className="fixed inset-0 -z-10 h-full w-full  items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 
 
-      <main className='flex flex-col items-center px-4 '>
+      <main className='flex flex-col items-center px-4 overflow-hidden'>
         <Navebar />
         <Hero />
         <Tech />
         <ProjectHeading />
-        {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link }) => (
-          <Project Image={Image} title={title} desc={desc} tag1={tag1} tag2={tag2} tag3={tag3} link={link} />
+        {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index}) => (
+          <Project key={index} Image={Image} title={title} desc={desc} tag1={tag1} tag2={tag2} tag3={tag3} link={link} />
         ))}
         <Contact />
         <Footer />
