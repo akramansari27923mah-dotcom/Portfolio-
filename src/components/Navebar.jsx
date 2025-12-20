@@ -40,6 +40,10 @@ const Navebar = () => {
                 <a href="#contact" className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
                     <li title="Contact">Contact</li>
                 </a>
+
+                <a href="#Certificate" className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
+                    <li title="Certificate">Certificate</li>
+                </a>
             </motion.ul>
 
             <motion.ul
@@ -103,6 +107,10 @@ const Navebar = () => {
 
                             <a href="#contact" className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">
                                 <li title="Contact">Contact</li>
+                            </a>
+
+                            <a href="#Certificate" className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">
+                                <li title="Certificate">Certificate</li>
                             </a>
                         </ul>
 

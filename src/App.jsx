@@ -6,6 +6,7 @@ import Contact from './components/Contact'
 import projectData from './data/projectdata'
 import ProjectHeading from './components/ProjectHeading'
 import Footer from './components/Footer'
+import Certificate from './components/Certifecate/Certificate'
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <div className="fixed inset-0 -z-10 h-full w-full  items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 
 
-      <main className='flex flex-col items-center px-4 overflow-hidden'>
+      <main className='flex flex-col items-center justify-center px-4 overflow-hidden'>
         <Navebar />
         <Hero />
         <Tech />
@@ -21,6 +22,7 @@ const App = () => {
         {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index}) => (
           <Project key={index} Image={Image} title={title} desc={desc} tag1={tag1} tag2={tag2} tag3={tag3} link={link} />
         ))}
+        <Certificate />
         <Contact />
         <Footer />
       </main>
