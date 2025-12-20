@@ -9,14 +9,38 @@ const CardCertificate = ({ Image, name, where, CredentialID, link }) => {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="md:flex  justify-center items-center gap-x-5 mt-10 px-5 py-5 rounded-md bg-black/30">
+
             <div>
-                <img className="md:w-50 w-40 rounded-[5px]" src={Image} />
+                <img
+                    className="md:w-50 w-40 rounded-[5px]"
+                    src={Image}
+                />
             </div>
-            <div className="flex flex-col justify-center gap-y-3 md:mt-0 mt-5">
-                <p className="text-[12px] md:text-base">{name}</p>
-                <p className="text-[12px] md:text-base"><span>Issuing organization : </span>{where}</p>
-                <p className="text-[12px] md:text-base text-nowrap"><span>Credential ID : </span>{CredentialID}</p>
-                <a title="Visit" target="_blank" className="py-2 px-3 border border-indigo-500 w-25 text-center rounded-sm backdrop-blur-sm bg-black/30" href={link}>
+
+            <div
+                className="flex flex-col justify-center gap-y-3 md:mt-0 mt-5">
+                <p
+                    className="text-[12px] md:text-base">
+                    {name}
+
+                </p>
+
+                <p
+                    className="text-[12px] md:text-base">
+                    <span>Issuing organization : </span>
+                    {where}
+                </p>
+
+                <p
+                    className="text-[12px] md:text-base text-nowrap">
+                    <span>Credential ID : </span>
+                    {CredentialID}
+                </p>
+
+                <a
+                    title="Visit"
+                    target="_blank"
+                    className="py-2 px-3 border border-indigo-500 w-25 text-center rounded-sm backdrop-blur-sm bg-black/30" href={link}>
                     Visit
                 </a>
             </div>
