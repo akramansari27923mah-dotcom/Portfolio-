@@ -19,14 +19,25 @@ const App = () => {
         <Hero />
         <Tech />
         <ProjectHeading />
-        {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index}) => (
-          <Project key={index} Image={Image} title={title} desc={desc} tag1={tag1} tag2={tag2} tag3={tag3} link={link} />
+        
+        {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index }) => (
+
+          <Project
+            key={index}
+            Image={Image}
+            title={title}
+            desc={desc}
+            tag1={tag1}
+            tag2={tag2}
+            tag3={tag3}
+            link={link}
+          />
         ))}
         <Certificate />
         <Contact />
         <Footer />
       </main>
-       
+
     </>
   )
 }
