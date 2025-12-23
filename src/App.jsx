@@ -19,20 +19,22 @@ const App = () => {
         <Hero />
         <Tech />
         <ProjectHeading />
-        
-        {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index }) => (
 
-          <Project
-            key={index}
-            Image={Image}
-            title={title}
-            desc={desc}
-            tag1={tag1}
-            tag2={tag2}
-            tag3={tag3}
-            link={link}
-          />
-        ))}
+        <div className='grid md:grid-cols-2 lg:grid-cols-3  gap-5 justify-center items-center'>
+          {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index }) => (
+
+            <Project
+              key={index}
+              Image={Image}
+              title={title}
+              desc={desc}
+              tag1={tag1}
+              tag2={tag2}
+              tag3={tag3}
+              link={link}
+            />
+          ))}
+        </div>
         <Certificate />
         <Contact />
         <Footer />

@@ -7,7 +7,7 @@ const Certificate = () => {
   return (
     <div
       id="Certificate"
-      className="w-full h-screen text-white flex justify-center items-center flex-col md:mt-20">
+      className="w-full h-screen text-white flex justify-center items-center flex-col mt-20 md:mt-10 gap-y-5">
 
       <motion.h1
         initial={{ opacity: 0, y: 50 }}
@@ -18,7 +18,7 @@ const Certificate = () => {
         Certificate
       </motion.h1>
 
-      <div className="overflow-y-scroll snap-y snap-mandatory hide-scrollbar">
+      <div className="grid md:grid-cols-3 justify-center items-center gap-3 hide-scrollbar overflow-y-scroll">
         {
           certificate.map(({ Image, name, where, CredentialID, link, id }) => (
             <CardCertificate

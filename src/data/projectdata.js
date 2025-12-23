@@ -2,7 +2,7 @@ const projectData = [
     {
         Image: 'amazon.png',
         title: 'Amazon',
-        desc: 'Amazon Clone (HTML & CSS Project)Built an Amazon clone using HTML and CSS to practice frontend design and layout. Implemented product listings, navigation menus, and page structure to mimic the look of a real e-commerce site. Note: This project is not responsive yet, but it helped me strengthen my HTML and CSS skills.',
+        desc: 'Amazon Clone built using HTML and CSS to practice frontend layout design including navigation menus product listings and structured page sections effectively.',
         tag1: 'HTML',
         tag2: 'CSS',
         link: 'https://arman252412.github.io/amazon1/'
@@ -11,7 +11,7 @@ const projectData = [
     {
         Image: 'movi4u.png',
         title: 'Movie4U',
-        desc: '“Movie4U – A simple movie website built with HTML & CSS to improve my web development skills and practice layout design.”',
+        desc: 'Movie4U simple movie website created with HTML and CSS to practice layout design styling consistency and basic web development skills concepts effectively.',
         tag1: 'HTML',
         tag2: 'CSS',
         link: 'https://akramansari27923mah-dotcom.github.io/movie4u/index.html'
@@ -39,7 +39,7 @@ const projectData = [
     {
         Image: 'todo.png',
         title: 'Todo-List',
-        desc: 'A simple Todo List web app built using HTML, CSS, and JavaScript.Users can add, mark complete, and delete tasks.This project focuses on DOM manipulation and basic JavaScript functionality.',
+        desc: 'Built a simple Todo List app where users can add, complete, and delete tasks, focusing on DOM manipulation and core JavaScript concepts.',
         tag1: 'HTML',
         tag2: 'CSS',
         tag3: 'JavaScript',
@@ -49,7 +49,7 @@ const projectData = [
     {
         Image: 'wather.png',
         title: 'Wather-App',
-        desc: '"Built a basic Weather App using HTML, CSS, and JavaScript. The app shows real-time weather information for any city using an API."',
+        desc: 'Weather app built using HTML CSS and JavaScript displaying real time weather data for any city through external API integration services online',
         tag1: 'HTML',
         tag2: 'CSS',
         tag3: 'JavaScript',

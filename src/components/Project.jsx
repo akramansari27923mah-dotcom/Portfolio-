@@ -7,24 +7,25 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
     <>
       <div
         key={key}
-        className='w-full  flex flex-col justify-center items-center py-10 lg:py-5  px-20 gap-y-10'>
+        className='w-full  flex flex-col justify-center items-center py-10 lg:py-5 '>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           viewport={{ once: true }}
-          className="card flex flex-col backdrop-blur-sm bg-black/20 rounded-2xl p-2  lg:flex-row justify-center lg:gap-y-0 gap-y-5 items-center gap-x-10">
+          className="card flex flex-col backdrop-blur-sm bg-black/20 justify-center lg:gap-y-0  items-center gap-x-10 border border-gray-700 rounded-2xl overflow-hidden">
 
           <div>
 
             <a target="_blank" href={link}>
-              <img className='w-80 h-45 object-cover rounded-2xl' src={Image} alt={title} />
+              <img className='w-105 h-45 object-cover' src={Image} alt={title} />
             </a>
 
           </div>
 
-          <div className="flex flex-col justify-center gap-y-5  ">
+        {/* content */}
+          <div className="flex flex-col justify-center gap-y-3 mx-2 my-3  ">
 
             <h1
 
@@ -35,12 +36,12 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
 
             <p
 
-              className='text-gray-400 max-w-xl text-sm sm:text-base'>
+              className='text-gray-400 max-w-sm text-sm sm:text-base'>
               {desc}
 
             </p>
 
-            <div className='text-white flex gap-x-2'>
+            <div className='text-white flex gap-x-2 '>
 
               <p
 
