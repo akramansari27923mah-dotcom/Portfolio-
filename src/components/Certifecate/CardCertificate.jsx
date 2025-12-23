@@ -1,23 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
-const CardCertificate = ({ Image, name, where, CredentialID, link,}) => {
+const CardCertificate = ({ Image, name, where, CredentialID, link, }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             viewport={{ once: true }}
-            className="md:flex  justify-center flex-col items-center  gap-x-5 md:mt-10  rounded-md bg-black/30 snap-center  border border-gray-400">
+            className="md:flex  justify-center flex-col items-center  gap-x-5 md:mt-10  rounded-lg bg-black/30 snap-center  border border-gray-400 md:overflow-hidden">
 
             <div>
-
-                {
-                 <img
-                        className="md:w-105 w-110 md:h-50 h-45 object-cover rounded-[5px]"
-                        src={Image}
-                    /> 
-                }
+                <img
+                    className="md:w-105 w-110 md:h-50 h-45 object-cover rounded-t-lg"
+                    src={Image}
+                />
             </div>
 
             <div
