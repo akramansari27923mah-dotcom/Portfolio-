@@ -12,7 +12,7 @@ import FireworkDemo from './components/Fireworks/Firework'
 const App = () => {
   return (
     <>
-      <div className='w-full h-screen fixed top-0 z-40'>
+      <div className='w-full h-screen fixed top-0'>
         <FireworkDemo />
       </div>
       <div className="fixed inset-0 -z-10 h-screen w-full  items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
