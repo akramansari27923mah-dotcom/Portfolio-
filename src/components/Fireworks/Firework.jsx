@@ -12,7 +12,7 @@ const FireworkDemo = () => {
     },[])
 
   return (
-    <div ref={containerRef}></div>
+    <div ref={containerRef} className='h-screen w-full fixed top-0'></div>
   )
 }
 
