@@ -173,7 +173,7 @@ const Navebar = () => {
                         className={`fixed right-0 border-b rounded-bl-2xl top-17 flex h-100 w-1/2 flex-col gap-10 border-gray-800 border-l bg-black/70 ${isOpen ? 'block' : 'hidden'}`}>
 
                         {/* quick links */}
-                        <ul className="flex flex-col gap-5 justify-start px-10 py-5 items-start">
+                        <ul className="flex flex-col gap-5 justify-start px-10 py-5 items-start ">
 
                             <a
                                 href="#home"
