@@ -7,7 +7,7 @@ const Tech = () => {
   return (
     <div 
     id="tech" 
-    className='flex flex-col w-full h-screen justify-center items-center gap-y-15 lg:gap-y-25 text-white  lg:px-16 md:px-32'>
+    className='flex flex-col w-full h-screen justify-center items-center gap-y-15 lg:gap-y-25 text-white  lg:px-16 md:px-32 z-20'>
 
       <motion.div
         initial={{ opacity: 0, x: 100 }}

@@ -7,7 +7,7 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
     <>
       <div
         key={key}
-        className='w-full  flex flex-col justify-center items-center py-10 lg:py-5 '>
+        className='w-full  flex flex-col justify-center items-center py-5 lg:py-5 '>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -24,7 +24,7 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
 
           </div>
 
-        {/* content */}
+          {/* content */}
           <div className="flex flex-col justify-center gap-y-3 mx-2 my-3  ">
 
             <h1
@@ -83,9 +83,18 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
               {
                 tag3 === 'TailwindCss' ?
                   <p
-                    className='py-1 text-sm px-3 rounded-xl bg-black/70 '>
+                    className='py-1 text-sm px-3 rounded-xl bg-black/70 ' 
+                    title={tag3}>
                     {tag3}
                   </p> :
+                  null
+              }
+              {
+                tag2 === 'Tailwindcss' ? <p
+                  className='py-1 text-sm px-3 rounded-xl bg-black/70 '
+                  title={tag2}>
+                  {tag2}
+                </p> :
                   null
               }
 

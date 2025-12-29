@@ -7,7 +7,7 @@ const Certificate = () => {
   return (
     <div
       id="Certificate"
-      className="w-full h-screen text-white flex justify-center items-center flex-col mt-20 md:mt-10 gap-y-5">
+      className="w-full min-h-screen text-white flex justify-center items-center flex-col mt-20 md:mt-10 gap-y-5">
 
       <motion.h1
         initial={{ opacity: 0, y: 50 }}

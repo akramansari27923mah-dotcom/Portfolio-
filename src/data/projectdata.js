@@ -56,6 +56,14 @@ const projectData = [
         link: 'https://akramansari27923mah-dotcom.github.io/weather-app/'
 
     },
+    {
+        Image: 'colorPicker.png',
+        title: 'Color-Picker',
+        desc: 'Built a Color Picker App using React and Tailwind CSS. Real-time color selection with live preview Saves your selected colors using LocalStorage Clean, UI with Tailwind',
+        tag1: 'React.js',
+        tag2: 'Tailwindcss',
+        link: 'https://color-picker-seven-kohl.vercel.app/'
+    },
 ]
  
 export default projectData

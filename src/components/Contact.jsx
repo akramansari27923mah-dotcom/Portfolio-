@@ -10,7 +10,7 @@ const Contact = () => {
         transition={{ duration: 1, ease: 'easeInOut' }}
         viewport={{ once: true }}
         id="contact"
-        className='w-full lg:h-screen h-90 flex justify-center items-center flex-col md:px-20'>
+        className='w-full lg:h-screen h-90 flex justify-center items-center flex-col md:px-20 z-20'>
 
         <div className="flex justify-center items-center flex-col gap-y-8">
 
