@@ -13,7 +13,7 @@ const Navebar = () => {
         setIsOpen(!isOpen)
     }
     return (
-        <nav className=' text-white fixed top-0 z-10 w-full flex justify-between items-center border-b-gray-300 border-b-[0.5px] bg-black/70 px-10 py-4 md:justify-evenly backdrop-blur-md'>
+        <nav className=' text-white fixed top-0 z-100 w-full flex justify-between items-center border-b-gray-300 border-b-[0.5px] bg-black/70 px-10 py-4 md:justify-evenly backdrop-blur-md'>
 
             {/* large screen */}
             <motion.a

@@ -1,7 +1,50 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import Tost from "./tostyfi/Tost";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  const form = useRef();
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+
+  const SERVICE_ID = 'service_prcx5ld';
+  const TEMPLATE_ID = 'template_f5mmy9o';
+  const PUBLIC_KEY = 'K2rM4-3Zu0DCu3cdS';
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const templateParam = {
+      user_name: name,
+      user_email: email,
+      message
+    }
+    emailjs
+      .send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParam,
+        PUBLIC_KEY
+      )
+      .then(
+        () => {
+          toast.success('form submitted')
+          setName('')
+          setEmail('')
+          setMessage('')
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
+
   return (
     <>
       <motion.div
@@ -10,7 +53,7 @@ const Contact = () => {
         transition={{ duration: 1, ease: 'easeInOut' }}
         viewport={{ once: true }}
         id="contact"
-        className='w-full lg:h-screen h-90 flex justify-center items-center flex-col md:px-20 z-20'>
+        className='w-full lg:h-screen h-140 flex justify-end md:justify-center items-center flex-col md:px-20 z-20'>
 
         <div className="flex justify-center items-center flex-col gap-y-8">
 
@@ -18,19 +61,30 @@ const Contact = () => {
             className=' text-5xl bg-linear-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent'>
             Get In Touch
           </h1>
-
-          <p
-            className='text-gray-400 text-center'>
-            Want to chat? Sent me an E-mail Through this button and l'll respond whenever i can
-          </p>
-
-          <a
-            className='py-2 px-5 bg-black text-white rounded-xl border border-indigo-400 shadow-lg shadow-indigo-700 transition-all duration-300 hover:-translate-y-3'
-            target='_blank'
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=akramansari27923mah@gmail.com">
-            Contact me
-          </a>
-
+          <form ref={form} onSubmit={sendEmail} className="text-white border border-gray-400 flex justify-center items-start p-7 rounded-lg flex-col gap-y-5 bg-black/40 backdrop-blur-md">
+            <div className="flex flex-col gap-y-1">
+              <label>
+                Name
+              </label>
+              <input required value={name} onChange={(e) => setName(e.target.value)} name="user_name" className="border border-gray-600 focus:border-white p-2 rounded-lg w-80 outline-none" type="text" placeholder="Enter your name" />
+            </div>
+            <div className="flex flex-col gap-y-1">
+              <label>
+                Email
+              </label>
+              <input required value={email} onChange={(e) => setEmail(e.target.value)} name="user_email" className="border border-gray-600 focus:border-white p-2 rounded-lg w-80 outline-none " type="text" placeholder="Enter your email" />
+            </div>
+            <div className="flex flex-col gap-y-1">
+              <label>
+                Message
+              </label>
+              <textarea required value={message} onChange={(e) => setMessage(e.target.value)} name="message" className="border border-gray-600 focus:border-white  p-2 rounded-lg w-80 outline-none " type="text" placeholder="Message..." />
+            </div>
+            <div className="flex justify-center items-center w-full">
+              <button type="submit" className="py-2 px-5 bg-sky-400 rounded-lg hover:bg-sky-500 cursor-pointer">Send</button>
+            </div>
+          </form>
+          <Tost />
         </div>
       </motion.div>
 
