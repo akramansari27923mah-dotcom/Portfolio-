@@ -65,24 +65,24 @@ const Navebar = () => {
                 </a>
 
                 <a
-                    href="#contact"
-                    className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
-
-                    <li
-                        title="Contact">
-                        Contact
-
-                    </li>
-
-                </a>
-
-                <a
                     href="#Certificate"
                     className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
 
                     <li
                         title="Certificate">
                         Certificate
+
+                    </li>
+
+                </a>
+
+                <a
+                    href="#contact"
+                    className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
+
+                    <li
+                        title="Contact">
+                        Contact
 
                     </li>
 
@@ -281,7 +281,7 @@ const Navebar = () => {
                                 </a>
 
                             </li>
-                            
+
                         </ul>
 
                     </motion.div>
