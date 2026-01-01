@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Tost from "./tostyfi/Tost";
 import { toast } from "react-toastify";
+  import confetti from "canvas-confetti";
 
 const Contact = () => {
   const form = useRef();
@@ -16,6 +17,17 @@ const Contact = () => {
   const SERVICE_ID = 'service_prcx5ld';
   const TEMPLATE_ID = 'template_f5mmy9o';
   const PUBLIC_KEY = 'K2rM4-3Zu0DCu3cdS';
+
+
+
+const fire = () => {
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 },
+  });
+};
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -34,6 +46,7 @@ const Contact = () => {
       .then(
         () => {
           toast.success('form submitted')
+          fire()
           setName('')
           setEmail('')
           setMessage('')
