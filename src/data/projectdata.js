@@ -1,5 +1,14 @@
 const projectData = [
     {
+        Image : 'toast.png',
+        title : 'Toster',
+        desc : 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
+        link : 'https://akramansari27923mah-dotcom.github.io/toster-/',
+        tag1 : 'HTML',
+        tag2: 'CSS',
+        tag3 : 'JavaScript'
+    },
+    {
         Image: 'amazon.png',
         title: 'Amazon',
         desc: 'Amazon Clone built using HTML and CSS to practice frontend layout design including navigation menus product listings and structured page sections effectively.',
