@@ -1,5 +1,43 @@
 const projectData = [
     {
+        Image: 'todo.png',
+        title: 'Todo-List',
+        desc: 'Built a simple Todo List app where users can add, complete, and delete tasks, focusing on DOM manipulation and core JavaScript concepts.',
+        tag1: 'HTML',
+        tag2: 'CSS',
+        tag3: 'JavaScript',
+        link: 'https://akramansari27923mah-dotcom.github.io/todo-list/'
+
+    },
+    {
+        Image: 'card.png',
+        title: 'Card Generator',
+        desc: 'A simple user card generator built with HTML, CSS, and JavaScript — users can enter their details in a form to create personalized cards instantly.',
+        tag1: 'HTML',
+        tag2: 'CSS',
+        tag3: 'JavaScript',
+        link: 'https://akramansari27923mah-dotcom.github.io/Card-Generator/'
+
+    },
+    {
+        Image: 'colorPicker.png',
+        title: 'Color-Picker',
+        desc: 'Built a Color Picker App using React and Tailwind CSS. Real-time color selection with live preview Saves your selected colors using LocalStorage Clean, UI with Tailwind',
+        tag1: 'React.js',
+        tag2: 'Tailwindcss',
+        link: 'https://color-picker-seven-kohl.vercel.app/'
+    },
+    {
+        Image: 'wather.png',
+        title: 'Wather-App',
+        desc: 'Weather app built using HTML CSS and JavaScript displaying real time weather data for any city through external API integration services online',
+        tag1: 'HTML',
+        tag2: 'CSS',
+        tag3: 'JavaScript',
+        link: 'https://akramansari27923mah-dotcom.github.io/weather-app/'
+
+    },
+    {
         Image : 'toast.png',
         title : 'Toster',
         desc : 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
@@ -33,45 +71,7 @@ const projectData = [
         tag1: 'HTML',
         tag2: 'TailwindCss',
         link: 'https://akramansari27923mah-dotcom.github.io/chatgpt-clone/'
-
-    },
-    {
-        Image: 'card.png',
-        title: 'Card Generator',
-        desc: 'A simple user card generator built with HTML, CSS, and JavaScript — users can enter their details in a form to create personalized cards instantly.',
-        tag1: 'HTML',
-        tag2: 'CSS',
-        tag3: 'JavaScript',
-        link: 'https://akramansari27923mah-dotcom.github.io/Card-Generator/'
-
-    },
-    {
-        Image: 'todo.png',
-        title: 'Todo-List',
-        desc: 'Built a simple Todo List app where users can add, complete, and delete tasks, focusing on DOM manipulation and core JavaScript concepts.',
-        tag1: 'HTML',
-        tag2: 'CSS',
-        tag3: 'JavaScript',
-        link: 'https://akramansari27923mah-dotcom.github.io/todo-list/'
-
-    },
-    {
-        Image: 'wather.png',
-        title: 'Wather-App',
-        desc: 'Weather app built using HTML CSS and JavaScript displaying real time weather data for any city through external API integration services online',
-        tag1: 'HTML',
-        tag2: 'CSS',
-        tag3: 'JavaScript',
-        link: 'https://akramansari27923mah-dotcom.github.io/weather-app/'
-
-    },
-    {
-        Image: 'colorPicker.png',
-        title: 'Color-Picker',
-        desc: 'Built a Color Picker App using React and Tailwind CSS. Real-time color selection with live preview Saves your selected colors using LocalStorage Clean, UI with Tailwind',
-        tag1: 'React.js',
-        tag2: 'Tailwindcss',
-        link: 'https://color-picker-seven-kohl.vercel.app/'
+        
     },
 ]
  
