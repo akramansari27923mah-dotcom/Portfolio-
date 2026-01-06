@@ -2,7 +2,7 @@ const projectData = [
     {
         Image: 'crud.png',
         title: 'Crud-App',
-        desc: 'A simple CRUD application built using React.js and Tailwind CSS that allows users to add, view, edit, and delete data with a clean and responsive UI.',
+        desc: 'A simple CRUD application built using React.js and Tailwind CSS that allows users to add, view, edit, and delete data with a clean UI.',
         tag1: 'React.js',
         tag2: 'Tailwindcss',
         link: 'https://crud-app-dz53.vercel.app'
