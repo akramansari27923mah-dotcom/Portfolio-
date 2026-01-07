@@ -87,6 +87,18 @@ const Navebar = () => {
                     </li>
 
                 </a>
+                
+                <a
+                    href="https://akramansari27923mah-dotcom.github.io/Resume/resume.html"
+                    target="_blank"
+                    className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
+
+                    <li
+                        title="Contact">
+                        Resume
+                    </li>
+
+                </a>
             </motion.ul>
 
 
@@ -134,7 +146,7 @@ const Navebar = () => {
 
                 </li>
 
-                <li
+                {/* <li
                     className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100 hover:text-sky-400">
 
                     <a
@@ -143,7 +155,7 @@ const Navebar = () => {
                         <FaTwitter />
                     </a>
 
-                </li>
+                </li> */}
             </motion.ul>
 
             {/* phone menu */}
@@ -170,7 +182,7 @@ const Navebar = () => {
                         initial={{ opacity: 0, x: 100 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className={`fixed right-0 border-b rounded-bl-2xl top-17 flex h-100 w-1/2 flex-col gap-10 border-gray-800 border-l bg-black/70 ${isOpen ? 'block' : 'hidden'}`}>
+                        className={`fixed right-0 border-b rounded-bl-2xl top-17 flex h-screen w-1/2 flex-col gap-10 border-gray-800 border-l bg-black/70 ${isOpen ? 'block' : 'hidden'}`}>
 
                         {/* quick links */}
                         <ul className="flex flex-col gap-5 justify-start px-10 py-5 items-start ">
@@ -230,6 +242,17 @@ const Navebar = () => {
                                 </li>
 
                             </a>
+                            <a
+                                href="https://akramansari27923mah-dotcom.github.io/Resume/resume.html"
+                                target="_blank"
+                                className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">
+
+                                <li
+                                    title="Resume">
+                                    Resume
+                                </li>
+
+                            </a>
                         </ul>
 
                         {/* social links */}
@@ -270,7 +293,7 @@ const Navebar = () => {
 
                             </li>
 
-                            <li
+                            {/* <li
                                 className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100 hover:text-sky-400">
 
                                 <a
@@ -280,7 +303,7 @@ const Navebar = () => {
                                     <FaTwitter />
                                 </a>
 
-                            </li>
+                            </li> */}
 
                         </ul>
 
