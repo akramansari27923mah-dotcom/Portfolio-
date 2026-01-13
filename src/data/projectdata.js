@@ -36,23 +36,6 @@ const projectData = [
 
     },
     {
-        Image: 'amazon.png',
-        title: 'Amazon',
-        desc: 'Amazon Clone built using HTML and CSS to practice frontend layout design including navigation menus product listings and structured page sections effectively.',
-        tag1: 'HTML',
-        tag2: 'CSS',
-        link: 'https://arman252412.github.io/amazon1/'
-
-    },
-    {
-        Image: 'movi4u.png',
-        title: 'Movie4U',
-        desc: 'Movie4U simple movie website created with HTML and CSS to practice layout design styling consistency and basic web development skills concepts effectively.',
-        tag1: 'HTML',
-        tag2: 'CSS',
-        link: 'https://akramansari27923mah-dotcom.github.io/movie4u/index.html'
-    },
-    {
         Image: 'wather.png',
         title: 'Wather-App',
         desc: 'Weather app built using HTML CSS and JavaScript displaying real time weather data for any city through external API integration services online',
@@ -62,16 +45,33 @@ const projectData = [
         link: 'https://akramansari27923mah-dotcom.github.io/weather-app/'
 
     },
+    {
+        Image: 'amazon.png',
+        title: 'Amazon',
+        desc: 'Amazon Clone built using HTML and CSS to practice frontend layout design including navigation menus product listings and structured page sections effectively.',
+        tag1: 'HTML',
+        tag2: 'CSS',
+        link: 'https://arman252412.github.io/amazon1/'
 
-        {
-            Image : 'toast.png',
-            title : 'Toster',
-            desc : 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
-            link : 'https://akramansari27923mah-dotcom.github.io/toster-/',
-            tag1 : 'HTML',
-            tag2: 'CSS',
-            tag3 : 'JavaScript'
-        },
+    },
+    {
+        Image : 'toast.png',
+        title : 'Toster',
+        desc : 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
+        link : 'https://akramansari27923mah-dotcom.github.io/toster-/',
+        tag1 : 'HTML',
+        tag2: 'CSS',
+        tag3 : 'JavaScript'
+    },
+    {
+        Image: 'movi4u.png',
+        title: 'Movie4U',
+        desc: 'Movie4U simple movie website created with HTML and CSS to practice layout design styling consistency and basic web development skills concepts effectively.',
+        tag1: 'HTML',
+        tag2: 'CSS',
+        link: 'https://akramansari27923mah-dotcom.github.io/movie4u/index.html'
+    },
+
     {
         Image: 'chatgpt.png',
         title: 'Chatgpt',
