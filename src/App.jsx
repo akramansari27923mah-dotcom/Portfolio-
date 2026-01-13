@@ -23,7 +23,7 @@ const App = () => {
         <Tech />
         <ProjectHeading />
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3  gap-5 justify-center items-center'>
+        <div className='grid md:grid-cols-2  gap-x-30 justify-center items-center'>
           {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index }) => (
 
             <Project

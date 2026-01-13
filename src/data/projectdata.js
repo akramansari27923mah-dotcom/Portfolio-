@@ -18,16 +18,6 @@ const projectData = [
 
     },
     {
-        Image: 'card.png',
-        title: 'Card Generator',
-        desc: 'A simple user card generator built with HTML, CSS, and JavaScript — users can enter their details in a form to create personalized cards instantly.',
-        tag1: 'HTML',
-        tag2: 'CSS',
-        tag3: 'JavaScript',
-        link: 'https://akramansari27923mah-dotcom.github.io/Card-Generator/'
-
-    },
-    {
         Image: 'colorPicker.png',
         title: 'Color-Picker',
         desc: 'Built a Color Picker App using React and Tailwind CSS. Real-time color selection with live preview Saves your selected colors using LocalStorage Clean, UI with Tailwind',
@@ -36,23 +26,14 @@ const projectData = [
         link: 'https://color-picker-seven-kohl.vercel.app/'
     },
     {
-        Image: 'wather.png',
-        title: 'Wather-App',
-        desc: 'Weather app built using HTML CSS and JavaScript displaying real time weather data for any city through external API integration services online',
+        Image: 'card.png',
+        title: 'Card Generator',
+        desc: 'A simple user card generator built with HTML, CSS, and JavaScript — users can enter their details in a form to create personalized cards instantly.',
         tag1: 'HTML',
         tag2: 'CSS',
         tag3: 'JavaScript',
-        link: 'https://akramansari27923mah-dotcom.github.io/weather-app/'
+        link: 'https://akramansari27923mah-dotcom.github.io/Card-Generator/'
 
-    },
-    {
-        Image : 'toast.png',
-        title : 'Toster',
-        desc : 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
-        link : 'https://akramansari27923mah-dotcom.github.io/toster-/',
-        tag1 : 'HTML',
-        tag2: 'CSS',
-        tag3 : 'JavaScript'
     },
     {
         Image: 'amazon.png',
@@ -71,7 +52,26 @@ const projectData = [
         tag2: 'CSS',
         link: 'https://akramansari27923mah-dotcom.github.io/movie4u/index.html'
     },
+    {
+        Image: 'wather.png',
+        title: 'Wather-App',
+        desc: 'Weather app built using HTML CSS and JavaScript displaying real time weather data for any city through external API integration services online',
+        tag1: 'HTML',
+        tag2: 'CSS',
+        tag3: 'JavaScript',
+        link: 'https://akramansari27923mah-dotcom.github.io/weather-app/'
 
+    },
+
+        {
+            Image : 'toast.png',
+            title : 'Toster',
+            desc : 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
+            link : 'https://akramansari27923mah-dotcom.github.io/toster-/',
+            tag1 : 'HTML',
+            tag2: 'CSS',
+            tag3 : 'JavaScript'
+        },
     {
         Image: 'chatgpt.png',
         title: 'Chatgpt',
