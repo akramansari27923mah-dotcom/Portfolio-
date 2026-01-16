@@ -9,7 +9,7 @@ const certificate = [
     },
     {
         Image: 'html.jpg',
-        name: 'Web Design for Beginners: Build Websites in HTML & CSS',
+        name: 'Web Design : Build Websites in HTML & CSS',
         where: 'Udemy',
         CredentialID: ' UC-cec12c10-4a3c-497f-9c0e-7022943e1e0a',
         link: 'https://ude.my/UC-cec12c10-4a3c-497f-9c0e-7022943e1e0a',

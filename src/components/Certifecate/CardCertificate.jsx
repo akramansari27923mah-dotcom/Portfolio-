@@ -18,9 +18,9 @@ const CardCertificate = ({ Image, name, where, CredentialID, link, }) => {
             </div>
 
             <div
-                className="flex flex-col justify-center gap-y-3 md:mt-0 mt-2 px-2 py-2  md:py-2">
+                className="flex flex-col md:w-95 justify-center gap-y-3 md:mt-0 mt-2  p-2  md:py-2">
                 <p
-                    className="text-[10px] md:text-[14px]">
+                    className="text-[10px] md:text-[12px] font-semibold tracking-widest">
                     {name}
 
                 </p>
@@ -34,7 +34,7 @@ const CardCertificate = ({ Image, name, where, CredentialID, link, }) => {
                 <p
                     className="text-[10px] md:text-[13px] text-nowrap">
                     <span>Credential ID : </span>
-                    {CredentialID}
+                    {CredentialID.slice(0,30)}
                 </p>
 
                 <a
