@@ -14,7 +14,7 @@ const Hero = () => {
         >
           {/* profile image */}
           <img
-            className='w-60 h-60 object-cover rounded-[50%] transition-all duration-300 cursor-pointer shadow-xl shadow-indigo-900 hover:-translate-y-5' src="dp.jpg"
+            className='w-60 h-60 object-cover rounded-[50%] transition-all duration-300 cursor-pointer shadow-lg shadow-indigo-900 hover:-translate-y-5' src="linkiden.png"
           />
         </motion.div>
 
