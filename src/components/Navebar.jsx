@@ -16,6 +16,7 @@ const Navebar = () => {
         <nav className=' text-white fixed top-0 z-100 w-full flex justify-between items-center border-b-gray-300 border-b-[0.5px] bg-black/70 px-10 py-4 md:justify-evenly backdrop-blur-md'>
 
             {/* large screen */}
+            {/* quick links */}
             <motion.a
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -94,7 +95,7 @@ const Navebar = () => {
                     className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
 
                     <li
-                        title="Contact">
+                        title="Resume">
                         Resume
                     </li>
 
@@ -103,6 +104,7 @@ const Navebar = () => {
 
 
             {/* lagre screen */}
+            {/* social media */}
             <motion.ul
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
