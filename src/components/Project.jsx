@@ -19,7 +19,7 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
           <div>
 
             <a target="_blank" href={link}>
-              <img className='w-105 h-45 object-cover' src={Image} alt={title} />
+              <img className='w-110 h-45 object-cover' src={Image} alt={title} />
             </a>
 
           </div>
@@ -37,7 +37,7 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
             <p
 
               className='text-gray-400 max-w-sm text-sm sm:text-base'>
-              {desc}
+              {desc.slice(0,130)}...
 
             </p>
 
@@ -94,6 +94,14 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
                   className='py-1 text-sm px-3 rounded-xl bg-black/70 '
                   title={tag2}>
                   {tag2}
+                </p> :
+                  null
+              }
+              {
+                tag3 === 'Firebase' ? <p
+                  className='py-1 text-sm px-3 rounded-xl bg-black/70 '
+                  title={tag3}>
+                  {tag3}
                 </p> :
                   null
               }

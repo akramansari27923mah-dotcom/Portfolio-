@@ -8,6 +8,15 @@ const projectData = [
         link: 'https://crud-app-dz53.vercel.app'
     },
     {
+        Image: 'crudWithFirebase.png',
+        title: 'Crud-App with Firebase',
+        desc: 'This is a CRUD application built using Firebase Firestore.It allows users to create, read, update, and delete records easily.I used React.js for the frontend and Firebase for backend services.',
+        tag1: 'React.js',
+        tag2: 'Tailwindcss',
+        tag3 : 'Firebase',
+        link: 'https://crud-app-with-firebase-lac.vercel.app/'
+    },
+    {
         Image: 'todo.png',
         title: 'Todo-List',
         desc: 'Built a simple Todo List app where users can add, complete, and delete tasks, focusing on DOM manipulation and core JavaScript concepts.',
@@ -55,13 +64,13 @@ const projectData = [
 
     },
     {
-        Image : 'toast.png',
-        title : 'Toster',
-        desc : 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
-        link : 'https://akramansari27923mah-dotcom.github.io/toster-/',
-        tag1 : 'HTML',
+        Image: 'toast.png',
+        title: 'Toster',
+        desc: 'The toast shows small messages on the screen to inform the user about actions like success, error, or warning.',
+        link: 'https://akramansari27923mah-dotcom.github.io/toster-/',
+        tag1: 'HTML',
         tag2: 'CSS',
-        tag3 : 'JavaScript'
+        tag3: 'JavaScript'
     },
     {
         Image: 'movi4u.png',
@@ -79,8 +88,8 @@ const projectData = [
         tag1: 'HTML',
         tag2: 'TailwindCss',
         link: 'https://akramansari27923mah-dotcom.github.io/chatgpt-clone/'
-        
+
     },
 ]
- 
+
 export default projectData
