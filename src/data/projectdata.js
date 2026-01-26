@@ -1,7 +1,7 @@
 const projectData = [
     {
         Image: 'ai.gif',
-        title: 'ai text summarizer',
+        title: 'ai text summarizer 🤖',
         desc: 'AI Text Summarize Long Text in 5 Seconds ⚡Paste any article, notes, or long text and get a clear, short summary instantly. No Login • No Signup • No API Key Required',
         tag1: 'React.js',
         tag2: 'Tailwindcss',
