@@ -1,5 +1,14 @@
 const projectData = [
     {
+        Image: 'ai.gif',
+        title: 'ai text summarizer',
+        desc: 'AI Text Summarize Long Text in 5 Seconds ⚡Paste any article, notes, or long text and get a clear, short summary instantly. No Login • No Signup • No API Key Required',
+        tag1: 'React.js',
+        tag2: 'Tailwindcss',
+        tag3 : 'Puter.js',
+        link: 'https://ai-text-summarizer-eight-khaki.vercel.app/'
+    },
+    {
         Image: 'crud.png',
         title: 'Crud-App',
         desc: 'A simple CRUD application built using React.js and Tailwind CSS that allows users to add, view, edit, and delete data with a clean UI.',

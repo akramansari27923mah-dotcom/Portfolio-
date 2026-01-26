@@ -105,6 +105,14 @@ const Project = ({ Image, title, desc, tag1, tag2, tag3, link, key }) => {
                 </p> :
                   null
               }
+              {
+                tag3 === 'Puter.js' ? <p
+                  className='py-1 text-sm px-2 rounded-xl bg-black/70 '
+                  title={tag3}>
+                  {tag3}
+                </p> :
+                  null
+              }
 
               <a
                 className='py-1 text-sm px-3 lg:px-5 rounded-xl bg-black/70 text-nowrap'
