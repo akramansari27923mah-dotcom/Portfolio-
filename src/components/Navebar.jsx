@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter, } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaCode  } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 // eslint-disable-next-line no-unused-vars
@@ -22,8 +22,9 @@ const Navebar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
                 href="#home"
-                className="bg-linear-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent text-3xl font-semibold opacity-80 transition-all duration-300 hover:opacity-100 animate-pulse">
-                Akram
+                className="bg-linear-to-r flex gap-2 from-blue-500 to-pink-500 bg-clip-text text-transparent text-3xl font-semibold opacity-80 transition-all duration-300 hover:opacity-100 animate-pulse">
+               <FaCode className="text-white" /> 
+               <span>Akram</span>
             </motion.a>
 
             <motion.ul
