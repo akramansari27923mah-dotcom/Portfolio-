@@ -5,8 +5,17 @@ const projectData = [
         desc: 'AI Text Summarize Long Text in 5 Seconds ⚡Paste any article, notes, or long text and get a clear, short summary instantly. No Login • No Signup • No API Key Required',
         tag1: 'React.js',
         tag2: 'Tailwindcss',
-        tag3 : 'Puter.js',
+        tag3: 'Puter.js',
         link: 'https://ai-text-summarizer-eight-khaki.vercel.app/'
+    },
+    {
+        Image: 'aitexttospeech.png',
+        title : 'ai-text-to-speech 🗣️',
+        desc: 'This AI converts written text into natural-sounding speech. Users can type or paste text and listen to it instantly. It supports "en-US" languages and helps in learning, reading, and accessibility.',
+        tag1: 'React.js',
+        tag2: 'Tailwindcss',
+        tag3: 'Puter.js',
+        link: 'https://ai-text-to-speech-ebon.vercel.app/'
     },
     {
         Image: 'crud.png',
@@ -22,7 +31,7 @@ const projectData = [
         desc: 'This is a CRUD application built using Firebase Firestore.It allows users to create, read, update, and delete records easily.I used React.js for the frontend and Firebase for backend services.',
         tag1: 'React.js',
         tag2: 'Tailwindcss',
-        tag3 : 'Firebase',
+        tag3: 'Firebase',
         link: 'https://crud-app-with-firebase-lac.vercel.app/'
     },
     {
