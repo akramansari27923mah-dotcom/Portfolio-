@@ -33,14 +33,14 @@ const Hero = () => {
 
           <h3
             className="text-3xl bg-linear-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent font-light animate-pulse">
-            Web Developer
+            I'm Web Developer
           </h3>
 
           {/* for large-screen */}
           <p
             className="md:text-base text-pretty text-sm hidden md:block text-gray-400">
             Hi, I’m Akram Ansari, a front-end web developer.
-            I build clean, responsive, and user-friendly websites using HTML, CSS, Tailwind CSS, and JavaScript.
+            I build clean, responsive, and user-friendly websites using HTML, CSS, JavaScript and Tailwind CSS.
             Currently, I’m learning React.js to create modern and interactive web applications.
             I enjoy turning ideas into real-world projects and continuously improving my development skills.
           </p>
