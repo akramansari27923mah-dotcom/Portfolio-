@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div id="home" className='flex w-full h-screen justify-center items-center text-white lg:mt-20 px-16 md:px-32'>
+    <div id="home" className='flex w-full  h-screen justify-center items-center text-white lg:mt-20 px-16 md:px-32'>
 
-      <div className="flex justify-center items-center gap-y-5 flex-col">
+      <div className="flex justify-center  items-center gap-y-5 flex-col">
 
         <motion.div
           initial={{ opacity: 0, y: -50 }}

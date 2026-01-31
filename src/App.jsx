@@ -8,22 +8,26 @@ import ProjectHeading from './components/ProjectHeading'
 import Footer from './components/Footer'
 import Certificate from './components/Certifecate/Certificate'
 import FireworkDemo from './components/Fireworks/Firework'
+import Ai_ChatBot from './components/Ai_ChatBot'
+import 'animate.css';
 
 const App = () => {
+
+
   return (
     <>
-      <div className='w-full h-screen fixed top-0'>
+      <div className='w-full h-screen  fixed top-0'>
         <FireworkDemo />
       </div>
       <div className="fixed inset-0 -z-10 h-screen w-full  items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 
-      <main className='flex flex-col items-center justify-center px-4 overflow-x-hidden'>
+      <main className='flex flex-col items-center justify-center px-4 hide-scrollbar overflow-x-hidden'>
         <Navebar />
         <Hero />
         <Tech />
         <ProjectHeading />
 
-        <div className='grid md:grid-cols-2  gap-x-30 justify-center items-center'>
+        <div className='grid md:grid-cols-2 gap-x-30 justify-center items-center'>
           {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index }) => (
 
             <Project
@@ -41,6 +45,9 @@ const App = () => {
         <Certificate />
         <Contact />
         <Footer />
+
+
+        <Ai_ChatBot/>
       </main>
 
     </>
