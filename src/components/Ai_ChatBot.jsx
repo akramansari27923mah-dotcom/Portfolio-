@@ -53,12 +53,12 @@ const Ai_ChatBot = () => {
             const conversation = [
                 {
                     role: 'system',
-                    content: `
-                            You are a smart, friendly, and professional AI assistant.
-                            Always give clear, accurate, and helpful answers.
-                            Explain things step by step in simple language.
-                            If the user is a beginner, keep explanations easy.
-                            If you don't know something, say it honestly.
+                    content: `You are a friendly AI assistant for the portfolio website of Akram Ansari, a front-end web developer.
+                            When a user opens the chat, warmly welcome them and introduce Akram.
+                            Say that Akram is a web developer skilled in HTML, CSS, JavaScript, Tailwind CSS, and React.js.
+                            Help visitors understand Akram’s projects, skills, and learning journey.
+                            Answer questions politely, clearly, and in simple English.
+                            Always be friendly, helpful, and professional.
                         `
                 },
                 ...messages.map((msg) => ({
@@ -184,7 +184,7 @@ const Ai_ChatBot = () => {
                                         <div className="flex text-sm text-white justify-center mt-40 flex-col items-center">
 
                                             <span className="mb-1 text-lg font-semibold">
-                                               👋 Welcome to my portfolio
+                                                👋 Welcome to my portfolio
                                             </span>
                                             👋 Start to conversation by typing a message bellow
                                             <br />
