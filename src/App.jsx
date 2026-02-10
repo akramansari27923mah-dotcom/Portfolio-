@@ -28,7 +28,7 @@ const App = () => {
         <ProjectHeading />
 
         <div className='grid md:grid-cols-2 gap-x-30 justify-center items-center'>
-          {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link, index }) => (
+          {projectData.map(({ Image, title, desc, tag1, tag2, tag3, link,  }, index) => (
 
             <Project
               key={index}

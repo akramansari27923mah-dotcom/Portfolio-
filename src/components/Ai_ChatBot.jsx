@@ -1,272 +1,226 @@
-import { FaRobot } from "react-icons/fa";
-import Model from '../data/Model.json'
-import { LuSend } from "react-icons/lu";
-import { IoCloseCircle } from "react-icons/io5";
+import { useEffect, useRef, useState } from 'react'
+import { RiSendPlaneFill } from "react-icons/ri";
+import { GiRobotHelmet } from "react-icons/gi";
 
-import { useState, useEffect, useRef } from "react";
+
 const Ai_ChatBot = () => {
+  const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY
+  const [show, setShow] = useState(false)
+  const [messages, setMessages] = useState([])
+  const [loader, setLoader] = useState(false)
+  const [error, setError] = useState('')
+  const [inputValue, setInputValue] = useState('')
+  const messageEndRef = useRef(null)
 
-    const [messages, setMessages] = useState([]);
-    const [inputValue, setInputValue] = useState('');
-    const [error, setError] = useState('');
-    const [isLoader, setIsLoader] = useState(false);
-    const [aiReady, setAiReady] = useState(false);
-    const [selectedModel, setSelectedModel] = useState('gpt-4o');
-    const messageEndRef = useRef(null);
-    const [openAic, setOpenAic] = useState(false)
+  const autoSrollToBottom = () => {
+    messageEndRef.current?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
 
-    useEffect(() => {
-        const checkReady = setInterval(() => {
-            if (window.puter?.ai?.chat) {
-                setAiReady(true)
-                clearInterval(checkReady)
-            }
-        }, 300);
+  useEffect(() => {
+    autoSrollToBottom()
+  }, [messages])
 
-        return () => clearInterval(checkReady)
-    }, [])
 
-    useEffect(() => {
-        messageEndRef.current?.scrollIntoView({
-            behavior: 'smooth'
-        })
-    }, [messages])
+  const sendMessage = async () => {
+    if (!inputValue.trim()) return
 
-    const addMessage = (content, isUser) => {
-        setMessages((prev) => [...prev, {
-            content,
-            isUser,
-            id: Date.now()
-        }])
+    const userMessage = {
+      role: 'user',
+      content: inputValue
     }
 
-    const sendMessage = async () => {
-        const message = inputValue.trim()
+    const newMessage = [...messages, userMessage]
+    setMessages(newMessage)
+    setInputValue('')
+    setError('')
+    setLoader(true)
 
-        if (!message || !aiReady) return;
+    try {
+      const res = await fetch(
+        'https://api.groq.com/openai/v1/chat/completions',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${GROQ_API_KEY
+              }`
+          },
 
-        addMessage(message, true)
-        setInputValue('')
-        setIsLoader(true)
+          body: JSON.stringify({
+            model: 'llama-3.1-8b-instant',
+            messages: [
+              {
+                role: 'system',
+                content: `
+                     You are a personal AI assistant for Akram Ansari’s portfolio website.
 
-        try {
-            const conversation = [
-                {
-                    role: 'system',
-                    content: `You are a friendly AI assistant for the portfolio website of Akram Ansari, a front-end web developer.
-                            When a user opens the chat, warmly welcome them and introduce Akram.
-                            Say that Akram is a web developer skilled in HTML, CSS, JavaScript, Tailwind CSS, and React.js.
-                            Help visitors understand Akram’s projects, skills, and learning journey.
-                            Answer questions politely, clearly, and in simple English.
-                            Always be friendly, helpful, and professional.
-                        `
-                },
-                ...messages.map((msg) => ({
-                    role: msg.isUser ? 'user' : 'assistant',
-                    content: msg.content
-                })),
+First, introduce Akram briefly when a user starts the conversation.
 
-                {
-                    role: 'user',
-                    content: message
-                }
-            ];
+About Akram Ansari:
+- He is a front-end web developer.
+- He uses HTML, CSS, JavaScript.
+- He works with React.js and Tailwind CSS.
+- He is passionate about web development and learning new technologies.
+- He wants to become a professional web developer and work on real-world projects.
 
-            const respond = await window.puter.ai.chat(conversation, {
-                model: selectedModel
-            });
+Your behavior rules:
+- Speak in simple, clear English.
+- Be friendly and professional.
+- Give answers in clean, well-structured format.
+- If the user asks about skills, explain them clearly.
+- If the user asks about projects, guide them politely.
+- If the user asks something outside Akram’s profile, answer normally like a helpful AI.
+- Do not use unnecessary emojis.
+- Keep responses short and meaningful unless detailed explanation is requested.
 
-            const reply = typeof respond === 'string' ?
-                respond : respond?.message?.content || 'No reply message'
+Start every new chat by introducing Akram in 2–3 lines, then ask how you can help the user.
 
-            addMessage(reply, false)
+PROJECT LIST:
+1. AI Text Summarizer (React, Tailwind CSS, Puter.js)
+2. AI Text to Speech (React, Tailwind CSS, Puter.js)
+3. CRUD App (React, Tailwind CSS)
+4. CRUD App with Firebase (React, Tailwind CSS, Firebase)
+5. Todo List (HTML, CSS, JavaScript)
+6. Color Picker (React, Tailwind CSS)
+7. Card Generator (HTML, CSS, JavaScript)
+8. Weather App (HTML, CSS, JavaScript)
+9. Amazon Clone (HTML, CSS)
+10. Toaster Notification App (HTML, CSS, JavaScript)
+11. Movie4U Website (HTML, CSS)
+12. ChatGPT UI Clone (HTML, Tailwind CSS)
+                `
+              },
+              ...newMessage.slice(-10)
+            ]
+          })
         }
-        catch (err) {
-            console.log(err.message || 'Somthing went wronge');
-            setError(err.message)
-        }
-        finally {
-            setIsLoader(false)
-        }
-    };
+      );
 
-    const handelKeyPress = (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault()
-            sendMessage()
-        }
-    };
+      if (!res.ok) {
+        const errData = await res.json()
+        console.error(errData)
+        throw new Error(errData.error?.message || 'Groq Api Error');
 
-    const handelModelChange = (e) => {
-        const newModel = e.target.value
-        setSelectedModel(newModel)
+      }
 
-        const model = Model.find((m) => m.id === newModel)
-        addMessage(`🔄 Switch to ${model.name} ${model.provider}`, false)
-    };
+      const data = await res.json()
 
-    const currentModel = Model.find((m) => m.id === selectedModel) || Model[0];
+      const aiMessages = {
+        role: 'assistant',
+        content: data.choices[0].message.content
+      }
 
-    return (
+      setMessages((prev) => [...prev, aiMessages])
+    }
+    catch (err) {
+      setError(err.message)
+      setLoader(false)
+    }
+    finally {
+      setLoader(false)
+    }
 
-        <div>
-            <button
-                onClick={() => setOpenAic(true)}
-                className="fixed z-99 bottom-5 right-5 animate__animated animate__tada animate__infinite animate__slow flex flex-col justify-center items-center">
-                <FaRobot size={30} className="text-white cursor-pointer" />
-                <span className="text-white">
-                    Ai ChatBot
-                </span>
-            </button>
+  };
+
+  const handelKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftkey) {
+      e.preventDefault()
+      sendMessage()
+    }
+  }
+
+
+  return (
+    <div>
+      <button onClick={() => setShow(!show)} className='cursor-pointer'>
+        <img
+          className='fixed bottom-2 right-0 w-40 animate__animated animate__shakeX'
+          src="/ai.png" />
+      </button>
+
+      {
+        show &&
+        <div className='animate__animated shadow-white rounded-t-lg animate__fadeIn rounded-b-lg w-90 shadow-sm  fixed z-120 bottom-25 right-20 bg-white overflow-hidden'>
+          <div className='flex justify-between items-center bg-black text-white p-4'>
+            <h1 className='animate__animated animate__slideInLeft'>AI CHATBOAT</h1>
+            <GiRobotHelmet size={25} className='animate__animated animate__slideInRight' />
+          </div>
+
+          <div className='h-80 p-3 overflow-y-scroll hide-scrollbar'>
             {
-                openAic &&
-
-                <div className='fixed z-100 top-0 animate__animated animate__slideInRight flex justify-center items-center w-full flex-col right-0 h-screen md:w-md shadow bg-gray-200'>
-
-                    <button
-                        onClick={() => setOpenAic(false)}
-                        className="absolute top-0 left-0 cursor-pointer hover:text-red-600 transition-all duration-300 hover:scale-105">
-                        <IoCloseCircle size={40} />
-                    </button>
-                    <div className="flex items-center gap-2 mb-5 text-2xl font-bold">
-                        <FaRobot size={30} />
-                        <h1>
-                            Ai ChatBot
-                        </h1>
-                    </div>
-
-                    <div className="flex items-center flex-col gap-4 w-full">
-                        <div className="flex items-center md:flex-row flex-col gap-2">
-
-                            <div className={`px-4 py-2 rounded-full text-sm ${aiReady ? 'text-green-600 bg-green-600/60 border border-green-600/50 ' : 'text-red-600 bg-red-600/60 border border-red-600/50'
-                                }`}>
-                                {
-                                    aiReady ? '🟢 Ai Ready' : '🔴 Watting for Ai...'
-                                }
-
-                            </div>
-                            <div>
-                                <span className="text-sm font-bold mr-2">models: </span>
-
-                                <select
-                                    value={selectedModel}
-                                    disabled={!aiReady || isLoader}
-                                    onChange={handelModelChange}
-                                    className="bg-black/30 px-4 py-2 w-50  rounded-md disabled:opacity-70 opacity-100 cursor-pointer outline-none  text-white text-sm font-semibold"
-                                >
-
-                                    {
-                                        Model.map((modl) => (
-                                            <option
-                                                value={modl.id}
-                                                key={modl.id}
-                                            >
-                                                {modl.name}
-                                                ({modl.provider})
-                                            </option>
-                                        ))
-                                    }
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div className="w-full p-3 rounded-sm">
-                            <div className="p-2 rounded-sm text-sm bg-black/50 flex justify-center items-center text-white">
-                                <span>
-                                    Currently using : {currentModel.name} ({currentModel.provider})
-                                </span>
-                            </div>
-
-                            <div className="h-96 shadow-md hide-scrollbar overflow-y-scroll flex p-2 flex-col rounded-sm mt-4 bg-black/80 backdrop-blur-lg">
-                                {
-                                    messages.length === 0 && (
-                                        <div className="flex text-sm text-white justify-center mt-40 flex-col items-center">
-
-                                            <span className="mb-1 text-lg font-semibold">
-                                                👋 Welcome to my portfolio
-                                            </span>
-                                            👋 Start to conversation by typing a message bellow
-                                            <br />
-
-                                            <span className="text-xs text-gray-400 mt-1">
-                                                Try different Ai models to see how they respond!
-                                            </span>
-                                        </div>
-                                    )
-                                }
-
-
-                                {
-                                    messages.map((msg) => (
-                                        <div key={msg.id}
-                                            className={`px-4 py-2 rounded-2xl  text-wrap mb-3  ${msg.isUser ? ' text-right text-white ' : 'bg-black/40 text-white tracking-wide max-w-[80%] '
-                                                }`}>
-
-                                            <div className="whitespace-pre-wrap text-sm ">
-                                                {msg.content}
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-
-
-                                {
-                                    isLoader && (
-                                        <div className="px-4 py-2 text-white rounded-2xl bg-amber-500/70 ">
-                                            <div className="flex gap-2 items-center animate-pulse">
-                                                <div className="animate-spin border rounded-full border-t-white border-white/30 w-6 h-6"></div>
-                                                <div>
-                                                    {currentModel.name} is thinking...
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                }
-
-                                <div ref={messageEndRef}></div>
-                            </div>
-
-                            <div className="flex flex-col gap-4 sm:flex-row mt-4">
-                                <input
-                                    onChange={(e) => setInputValue(e.target.value)}
-                                    value={inputValue}
-                                    onKeyDown={handelKeyPress}
-                                    disabled={!aiReady || isLoader}
-                                    placeholder={aiReady ? `ask ${currentModel.name} anything...` : 'Wating for ai...'}
-                                    className="outline-none flex-1 py-2 px-4 text-white w-full rounded-full bg-black/50 disabled:opacity-80 opacity-100 text-sm"
-                                    type="text" />
-
-                                <button
-                                    onClick={sendMessage}
-                                    disabled={!aiReady || isLoader || !inputValue.trim()}
-                                    className="px-4 py-2 rounded-lg cursor-pointer bg-indigo-600 shadow text-white disabled:opacity-80 opacity-100 disabled:cursor-not-allowed ">
-                                    {
-                                        isLoader ? (
-                                            <div className="flex gap-2 items-center">
-                                                <div className="animate-spin border rounded-full border-t-white border-white/30 w-6 h-6"></div>
-                                                Sending...
-                                            </div>
-                                        )
-                                            :
-                                            (
-                                                <div className="flex items-center justify-center gap-2">
-                                                    <LuSend />
-                                                    Send
-                                                </div>
-                                            )
-                                    }
-                                </button>
-                            </div>
-
-                        </div>
-
-                    </div>
+              messages.length === 0 && (
+                <div className='flex justify-center items-center flex-col mt-20'>
+                  <img src="/ai.png" className='w-30 animate__animated animate__swing' alt="" />
+                  <h1 className='animate__animated animate__flipInY'>Hey there ! Welcome to my portfolio</h1>
                 </div>
+              )
             }
 
+
+            {
+              messages.map((msg, i) => {
+                const isUser = msg.role === 'user'
+
+                return (
+                  <div key={i} className={`flex text-sm  ${isUser ? 'justify-end items-center' : 'justify-start items-center'
+                    }`}>
+                    <div className={`max-w-[80%] whitespace-pre-wrap p-2 mb-2 ${isUser ? 'bg-black text-white rounded-b-lg rounded-tl-lg' : 'bg-black/50 text-white rounded-t-lg rounded-br-lg'
+                      }`}>
+                      {msg.content}
+                    </div>
+                  </div>
+                )
+              })
+            }
+
+
+            {
+              loader &&
+              (
+                <div className='flex gap-2 items-center w-fit bg-gray-200 p-2 rounded-lg'>
+                  <div className='w-5 h-5 bg-gray-200 rounded-full animate-spin border border-t-white border-black'></div>
+                  <span>Thinking...</span>
+                </div>
+              )
+            }
+
+
+            <div ref={messageEndRef}></div>
+          </div>
+
+          <div className='flex items-center gap-2 p-2 justify-between bg-black'>
+            <input type="text"
+              value={inputValue}
+              onKeyDown={handelKeyPress}
+              placeholder='ask anythink...'
+              onChange={(e) => setInputValue(e.target.value)}
+              className='w-full outline-none border rounded-md p-2 bg-white animate__animated animate__slideInUp'
+            />
+
+            <button
+              onClick={sendMessage}
+              disabled={!inputValue.trim()}
+              className='py-2 rounded-md px-3 animate__animated animate__slideInUp bg-white disabled:opacity-80 opacity-100 text-black cursor-pointer'>
+
+              {
+                loader ? (
+                  <div className=' animate-spin w-5 h-5 rounded-full border-2 bg-black/30 border-t-white border-black'>
+                  </div>
+                )
+                  :
+
+                  <RiSendPlaneFill size={25} />
+              }
+
+            </button>
+
+          </div>
         </div>
-    )
+      }
+    </div>
+  )
 }
 
 export default Ai_ChatBot

@@ -34,7 +34,7 @@ const CardCertificate = ({ Image, name, where, CredentialID, link, }) => {
                 <p
                     className="text-[10px] md:text-[13px] text-nowrap">
                     <span>Credential ID : </span>
-                    {CredentialID.slice(0,30)}
+                    {CredentialID.slice(0, 30)}
                 </p>
 
                 <a

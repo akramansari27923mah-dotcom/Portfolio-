@@ -20,8 +20,9 @@ const Certificate = () => {
 
       <div className="grid md:grid-cols-3 justify-center items-center gap-3 hide-scrollbar overflow-y-scroll">
         {
-          certificate.map(({ Image, name, where, CredentialID, link, id }) => (
+          certificate.map(({ Image, name, where, CredentialID, link, id }, index) => (
             <CardCertificate
+            key={index}
               Image={Image}
               name={name}
               where={where}
