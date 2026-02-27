@@ -100,7 +100,7 @@ const Tech = () => {
 
           <p
             className="text-2xl text-sky-600">
-            React.js (learning)
+            React.js
           </p>
         </div>
 
