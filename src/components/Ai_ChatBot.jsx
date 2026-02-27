@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { RiSendPlaneFill } from "react-icons/ri";
 import { GiRobotHelmet } from "react-icons/gi";
+import { IoCloseSharp } from "react-icons/io5";
 import sendMessage from '../services/chatApi';
 import MarkdownRenderer from './MarkDownRender';
 
@@ -69,13 +70,17 @@ const Ai_ChatBot = () => {
 
       {
         show &&
-        <div className='animate__animated shadow-white rounded-t-lg animate__fadeIn rounded-b-lg w-90 shadow-sm  fixed z-120 bottom-25 right-20 bg-white overflow-hidden'>
+        <div className='animate__animated   shadow-white rounded-t-lg animate__fadeIn rounded-b-lg md:w-90 w-full md:h-108 h-screen shadow-sm  fixed z-120 md:bottom-25 bottom-0 md:right-20 right-0 bg-white overflow-hidden'>
           <div className='flex justify-between items-center bg-black text-white p-4'>
-            <h1 className='animate__animated animate__slideInLeft'>AI CHATBOAT</h1>
+            <h1 className='animate__animated animate__slideInLeft'>MeowGPT</h1>
+            <div className='flex items-center gap-3'>
             <GiRobotHelmet size={25} className='animate__animated animate__slideInRight' />
+              <IoCloseSharp size={25} className='cursor-pointer' onClick={() => setShow(false)} />
+            </div>
           </div>
 
-          <div className='h-80 p-3 overflow-y-scroll hide-scrollbar'>
+          <div className='h-160 md:h-83 p-3 overflow-y-scroll hide-scrollbar 
+          '>
             {
               message.length === 0 && (
                 <div className='flex justify-center items-center flex-col mt-20'>
@@ -118,7 +123,7 @@ const Ai_ChatBot = () => {
             <div ref={messageEndRef}></div>
           </div>
 
-          <div className='flex items-center gap-2 p-2 justify-between bg-black'>
+          <div className='flex items-center  w-full md:w-90 gap-2 p-2 justify-between bg-black fixed bottom-0 md:bottom-24 md:rounded-b-lg'>
             <input type="text"
               value={inputValue}
               onKeyDown={handelKeyPress}
