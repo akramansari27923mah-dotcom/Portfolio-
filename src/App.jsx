@@ -10,6 +10,7 @@ import Certificate from './components/Certifecate/Certificate'
 import FireworkDemo from './components/Fireworks/Firework'
 import Ai_ChatBot from './components/Ai_ChatBot'
 import 'animate.css';
+import Services from './components/Services'
 
 const App = () => {
 
@@ -42,6 +43,7 @@ const App = () => {
             />
           ))}
         </div>
+        <Services />
         <Certificate />
         <Contact />
         <Footer />

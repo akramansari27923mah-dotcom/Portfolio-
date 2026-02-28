@@ -39,10 +39,9 @@ const Hero = () => {
           {/* for large-screen */}
           <p
             className="md:text-base text-pretty text-sm hidden md:block text-gray-400">
-            Hi, I’m Akram Ansari, a front-end web developer.
-            I build clean, responsive, and user-friendly websites using HTML, CSS, JavaScript and Tailwind CSS.
-            Currently, I’m learning React.js to create modern and interactive web applications.
-            I enjoy turning ideas into real-world projects and continuously improving my development skills.
+            Hi, I’m Akram Ansari — a . <b className="text-white">MERN Stack Developer </b>
+            I build modern, responsive, and high-performance web applications using <b className="text-white">MongoDB</b>, <b className="text-white">Express</b>, <b className="text-white">React</b>, and <b className="text-white">Node.js</b>.
+            Passionate about turning ideas into real-world products.
           </p>
 
           {/*for phone */}

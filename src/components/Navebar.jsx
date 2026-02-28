@@ -89,6 +89,17 @@ const Navebar = () => {
                     </li>
 
                 </a>
+
+                <a
+                    href="#services"
+                    className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
+
+                    <li
+                        title="Services">
+                        Services
+                    </li>
+
+                </a>
                 
                 <a
                     href="https://akramansari27923mah-dotcom.github.io/Resume/resume.html"
@@ -245,6 +256,18 @@ const Navebar = () => {
                                 </li>
 
                             </a>
+
+                            <a
+                                href="#services"
+                                className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">
+
+                                <li
+                                    title="Services">
+                                    Services
+                                </li>
+
+                            </a>
+
                             <a
                                 href="https://akramansari27923mah-dotcom.github.io/Resume/resume.html"
                                 target="_blank"

@@ -2,12 +2,13 @@ import { FaCss3, FaHtml5, FaJs, FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import Backend from "./Backend";
 
 const Tech = () => {
   return (
     <div 
     id="tech" 
-    className='flex flex-col w-full h-screen justify-center items-center gap-y-15 lg:gap-y-25 text-white  lg:px-16 md:px-32 z-1'>
+    className='flex flex-col w-full min-h-screen justify-center items-center gap-y-15 lg:gap-y-25 text-white  lg:px-16 md:px-32 z-1'>
 
       <motion.div
         initial={{ opacity: 0, x: 100 }}
@@ -21,6 +22,8 @@ const Tech = () => {
           Technologys
         </h1>
       </motion.div>
+
+    <h1 className="text-3xl ">Frontend</h1>
 
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -105,6 +108,8 @@ const Tech = () => {
         </div>
 
       </motion.div>
+
+      <Backend />
     </div>
   )
 }
