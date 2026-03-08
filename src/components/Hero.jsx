@@ -47,7 +47,7 @@ const Hero = () => {
           {/*for phone */}
           <p
             className="md:hidden">
-            I'm Front-end Developer | HTML • CSS • Tailwind CSS • JavaScript • React (Learning)
+            MERN Stack Developer | MongoDB • Express • React • Node • Tailwind • JavaScript
           </p>
         </motion.div>
 
