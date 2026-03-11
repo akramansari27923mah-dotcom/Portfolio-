@@ -62,10 +62,10 @@ const Ai_ChatBot = () => {
 
   return (
     <div>
-      <button onClick={() => setShow(!show)} className='cursor-pointer'>
+      <button onClick={() => setShow(!show)} className='cursor-pointer fixed bottom-5 right-5'>
         <img
-          className='fixed bottom-2 right-0 w-40 animate__animated animate__shakeX'
-          src="/ai.png" />
+          className=' w-15 h-15 object-cover rounded-full animate__animated hover:-translate-y-2 transition-all duration-300 animate__shakeX'
+          src="/message.gif"/>
       </button>
 
       {
@@ -139,7 +139,7 @@ const Ai_ChatBot = () => {
 
               {
                 loader ? (
-                  <div className=' animate-spin w-5 h-5 rounded-full border-2 bg-black/30 border-t-white border-black'>
+                  <div className=' animate-spin w-5 h-5 rounded-full border-2 bg-white border-t-white border-black'>
                   </div>
                 )
                   :
