@@ -26,6 +26,7 @@ const Ai_ChatBot = () => {
   const hendelSend = async () => {
     if (!inputValue.trim()) return
 
+    setInputValue('')
     setLoader(true)
 
     const newMessage = [...message, { role: 'user', content: inputValue }]
@@ -134,8 +135,8 @@ const Ai_ChatBot = () => {
 
             <button
               onClick={hendelSend}
-              disabled={!inputValue.trim()}
-              className='py-2 rounded-md px-3 animate__animated animate__slideInUp bg-white disabled:opacity-80 opacity-100 text-black cursor-pointer'>
+              disabled={!inputValue.trim() || loader}
+              className='py-2 rounded-md px-3 disabled:cursor-not-allowed animate__animated animate__slideInUp bg-white disabled:opacity-80 opacity-100 text-black cursor-pointer'>
 
               {
                 loader ? (
