@@ -1,12 +1,24 @@
 const projectData = [
     {
-        Image: 'ai.gif',
-        title: 'ai text summarizer 🤖',
-        desc: 'AI Text Summarize Long Text in 5 Seconds ⚡Paste any article, notes, or long text and get a clear, short summary instantly. No Login • No Signup • No API Key Required',
-        tag1: 'React.js',
-        tag2: 'Tailwindcss',
-        tag3: 'Puter.js',
-        link: 'https://ai-text-summarizer-eight-khaki.vercel.app/'
+        Image: 'home.png',
+        title: 'ai email generater 🤖',
+        desc: 'Generate professional emails in seconds! Features login/signup/logout, multiple categories, and secure AI-powered email creation for any job or task.',
+        tag1: 'Mern Stack',
+        link: 'https://ai-email-generater.vercel.app/'
+    },
+    {
+        Image: 'nexora.png',
+        title: 'Nexora AI 🤖',
+        desc: 'A full-stack AI web application built with the **MERN Stack (MongoDB, Express, React, Node.js)** where users can interact with AI and get real-time responses.',
+        tag1: 'Mern Stack',
+        link: 'https://nexora-ai-nine.vercel.app/'
+    },
+    {
+        Image: 'nest.png',
+        title: 'NoteNest',
+        desc: 'A MERN stack CRUD notes app that lets users create, edit, view, and delete notes instantly — no login required.',
+        tag1: 'Mern Stack',
+        link: 'https://notenest-wnaq.onrender.com/'
     },
     {
         Image: 'aitexttospeech.png',
