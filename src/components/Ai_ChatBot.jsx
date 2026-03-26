@@ -73,7 +73,7 @@ const Ai_ChatBot = () => {
         show &&
         <div className='animate__animated   shadow-white rounded-t-lg animate__fadeIn rounded-b-lg md:w-90 w-full md:h-108 h-screen shadow-sm  fixed z-120 md:bottom-25 bottom-0 md:right-20 right-0 bg-white overflow-hidden'>
           <div className='flex justify-between items-center bg-black text-white p-4'>
-            <h1 className='animate__animated animate__slideInLeft'>MeowGPT</h1>
+            <h1 className='animate__animated animate__slideInLeft'>Akram AI</h1>
             <div className='flex items-center gap-3'>
             <GiRobotHelmet size={25} className='animate__animated animate__slideInRight' />
               <IoCloseSharp size={25} className='cursor-pointer' onClick={() => setShow(false)} />
