@@ -1,4 +1,3 @@
-import { FaArrowRight } from "react-icons/fa";
 import services from '../data/services'
 
 const Services = () => {

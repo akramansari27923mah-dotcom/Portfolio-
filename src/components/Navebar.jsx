@@ -12,6 +12,14 @@ const Navebar = () => {
     const menuOpen = () => {
         setIsOpen(!isOpen)
     }
+
+    const downloadResume = () => {
+        const link = document.createElement('a')
+        link.href = '/Resume.pdf'
+        link.download = 'Resume-akram-ansari.pdf'
+        link.click()
+    }   
+
     return (
         <nav className=' text-white fixed top-0 z-100 w-full flex justify-between items-center border-b-gray-300 border-b-[0.5px] bg-black/70 px-10 py-4 md:justify-evenly backdrop-blur-md'>
 
@@ -100,17 +108,13 @@ const Navebar = () => {
 
                 </a>
                 
-                <a
-                    href="https://akramansari27923mah-dotcom.github.io/Resume/resume.html"
-                    target="_blank"
-                    className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105">
 
                     <li
+                    onClick={downloadResume}
+                    className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105 border px-2 py-0.5 rounded-lg    "
                         title="Resume">
                         Resume
                     </li>
-
-                </a>
             </motion.ul>
 
 
@@ -195,7 +199,7 @@ const Navebar = () => {
                         initial={{ opacity: 0, x: 100 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className={`fixed right-0 border-b rounded-bl-2xl top-17 flex h-screen w-1/2 flex-col gap-10 border-gray-800 border-l bg-black/70 ${isOpen ? 'block' : 'hidden'}`}>
+                        className={`fixed right-0 border-b rounded-bl-2xl top-17 flex h-screen w-1/2 flex-col gap-10 border-gray-800 border-l bg-black/70 ${isOpen ? 'block' : 'hidden'} items-center`}>
 
                         {/* quick links */}
                         <ul className="flex flex-col gap-5 justify-start px-10 py-5 items-start ">
@@ -267,17 +271,12 @@ const Navebar = () => {
 
                             </a>
 
-                            <a
-                                href="https://akramansari27923mah-dotcom.github.io/Resume/resume.html"
-                                target="_blank"
-                                className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">
-
-                                <li
-                                    title="Resume">
-                                    Resume
-                                </li>
-
-                            </a>
+                            <li
+                    onClick={downloadResume}
+                    className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-105 border px-2 py-0.5 rounded-lg    "
+                        title="Resume">
+                        Resume
+                    </li>
                         </ul>
 
                         {/* social links */}
