@@ -1,5 +1,12 @@
 const projectData = [
     {
+        Image: 'notecraft.png',
+        title: 'NoteCraft Ai 🤖',
+        desc: 'NotesCraft AI is an intelligent note-taking platform where users can upload their own PDF notes and let AI automatically generate structured notes and interactive quizzes. It helps in simplifying learning by converting complex content into easy-to-understand summaries and practice questions. With a clean and user-friendly interface, NotesCraft AI makes studying smarter, faster, and more engaging.',
+        link: 'https://ai-notes-frontend-x9sz.vercel.app/',
+        tag1: 'Mern Stack'
+    },
+    {
         Image: 'home.png',
         title: 'ai email generater 🤖',
         desc: 'Generate professional emails in seconds! Features login/signup/logout, multiple categories, and secure AI-powered email creation for any job or task.',
