@@ -1,16 +1,96 @@
-# React + Vite
+# 👋 Hi, I'm Akram Ansari
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ MERN Stack Developer | Frontend Focused | Passionate Learner
 
-Currently, two official plugins are available:
+I build modern, responsive, and user-friendly web applications using the MERN stack.
+I focus on clean UI, smooth user experience, and scalable backend systems.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🧑 About Me
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*  MERN Stack Developer
+*  Skilled in building full-stack web applications
+*  Currently improving backend development skills
+*  Passionate about learning new technologies
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚡ Tech Stack
+
+###  Frontend
+
+* HTML
+* CSS
+* Tailwind CSS
+* JavaScript
+* React.js
+###  Backend
+
+* Node.js
+* Express.js
+
+###  Database
+
+* MongoDB
+
+### 🛠️ Tools & Platforms
+* Git  
+* GitHub  
+* Postman  
+* Vercel  
+* Render  
+---
+
+## 📂 Featured Projects
+
+###  Nexora AI
+
+AI-powered chatbot application where users can interact with AI.
+🔗 https://nexora-ai-nine.vercel.app/login
+
+---
+
+###  NoteNest
+
+A full-stack notes management app to create and organize notes.
+🔗 https://notenest-wnaq.onrender.com/
+
+---
+
+###  AI Notes App
+
+AI-based smart notes generator application.
+🔗 https://ai-notes-frontend-x9sz.vercel.app/
+
+---
+
+## 🌐 Portfolio
+
+👉 Add your portfolio link here
+
+---
+
+## 📞 Contact Me
+
+*  Email: [akramansari27923mah@gmail.com](mailto:akramansari27923mah@gmail.com)
+*  Phone: +91 6388674882
+*  LinkedIn: https://www.linkedin.com/in/akram-ansari-55a68538a/
+
+---
+
+##  Goal
+
+I am looking for opportunities to work as a developer where I can:
+
+* Improve my skills
+* Build real-world projects
+* Contribute to meaningful products
+
+---
+
+## ⭐ Support
+
+If you like my work, feel free to connect with me or give a ⭐ to my repositories!
+
+---

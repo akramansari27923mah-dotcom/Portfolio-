@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedin, FaCode  } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const Navebar = () => {
