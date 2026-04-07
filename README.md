@@ -67,7 +67,7 @@ AI-based smart notes generator application.
 
 ## 🌐 Portfolio
 
-👉 Add your portfolio link here
+ https://akram-portfolio-c4hv.vercel.app/
 
 ---
 
