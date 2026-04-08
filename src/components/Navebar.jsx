@@ -91,7 +91,7 @@ const Navebar = () => {
 
                     <li
                         title="Contact">
-                        Contact
+                            Hire me 
                     </li>
 
                 </a>
@@ -162,16 +162,7 @@ const Navebar = () => {
 
                 </li>
 
-                {/* <li
-                    className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100 hover:text-sky-400">
-
-                    <a
-                        title="Twitter"
-                        href="#">
-                        <FaTwitter />
-                    </a>
-
-                </li> */}
+             
             </motion.ul>
 
             {/* phone menu */}
@@ -243,7 +234,7 @@ const Navebar = () => {
 
                                 <li
                                     title="Contact">
-                                    Contact
+                                    Hire me 
                                 </li>
 
                             </a>

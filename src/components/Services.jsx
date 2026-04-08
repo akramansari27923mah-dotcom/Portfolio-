@@ -11,19 +11,19 @@ const Services = () => {
     key={i}
     className="bg-black/40 backdrop-blur-md border border-gray-200/20 text-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
   >
-    {/* Title */}
+  
     <h2 className="bg-white text-black text-center font-semibold py-2">
       {service.title}
     </h2>
 
-    {/* Image */}
+  
     <img
       src={service.image}
       alt={service.title}
       className="w-full h-40 object-cover"
     />
 
-    {/* Tags */}
+    
     <div className="flex flex-wrap justify-center gap-2 p-3">
       {service.tags.map((tag, index) => (
         <span
