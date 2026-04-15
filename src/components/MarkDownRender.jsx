@@ -19,7 +19,7 @@ export default function MarkChat({ content = "" }) {
   };
 
   return (
-    <div className="max-w-none break-words text-sm leading-6 text-white">
+    <div className="max-w-none wrap-break-word text-sm leading-6 text-white">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
@@ -124,7 +124,7 @@ export default function MarkChat({ content = "" }) {
             }
 
             return (
-              <code className="bg-gray-800 text-green-400 px-1.5 py-[2px] rounded">
+              <code className="bg-gray-800 text-green-400 px-1.5 py-0.5 rounded">
                 {children}
               </code>
             );
