@@ -3,7 +3,7 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { GiRobotHelmet } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import sendMessage from "../services/chatApi";
-import MarkdownRenderer from "./MarkDownRender";
+import MarkChat from "./MarkDownRender";
 
 const Ai_ChatBot = () => {
   const [show, setShow] = useState(false);
@@ -33,6 +33,7 @@ const Ai_ChatBot = () => {
 
     try {
       const data = await sendMessage(inputValue, newMessage);
+      console.log(data);
 
       setMessage((prev) => [
         ...prev,
@@ -89,7 +90,7 @@ const Ai_ChatBot = () => {
         className="cursor-pointer fixed bottom-5 right-5"
       >
         <img
-          className=" w-15 h-15 object-cover rounded-full animate__animated hover:-translate-y-2 transition-all duration-300 animate__shakeX"
+          className=" w-15 h-15 object-cover rounded-full animate__animated hover:-translate-y-2 transition-all duration-300 animate__shakeX z-40"
           src="/message.gif"
         />
       </button>
@@ -106,7 +107,9 @@ const Ai_ChatBot = () => {
                 </h1>
                 <div className="w-3 h-3 rounded-full bg-green-500 border-white border absolute top-3 animate__animated animate__fadeIn animate__infinite  left-22"></div>
               </div>
-              {loader && <span className="text-[10px] animate-pulse">Typing...</span>}
+              {loader && (
+                <span className="text-[10px] animate-pulse">Typing...</span>
+              )}
             </div>
             <div className="flex items-center gap-3">
               <GiRobotHelmet
@@ -122,7 +125,7 @@ const Ai_ChatBot = () => {
           </div>
 
           <div
-            className="h-160 md:h-83 p-3 overflow-y-scroll hide-scrollbar 
+            className="h-150 md:h-83 p-3 overflow-y-scroll hide-scrollbar 
           "
           >
             {message.length === 0 && (
@@ -187,7 +190,7 @@ const Ai_ChatBot = () => {
                         : "bg-black/50 text-white rounded-t-lg rounded-br-lg"
                     }`}
                   >
-                    <MarkdownRenderer content={msg.content} />
+                    <MarkChat content={msg.content} />
                   </div>
                 </div>
               );

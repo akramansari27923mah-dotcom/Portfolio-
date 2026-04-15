@@ -1,30 +1,130 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Copy, Check } from "lucide-react";
 import { useState } from "react";
-import { Check, Copy, ChevronDown, ChevronUp } from "lucide-react";
 
-export default function MarkdownRenderer({ content }) {
+export default function MarkChat({ content = "" }) {
+  const [copiedIndex, setCopiedIndex] = useState(null);
+
+  const handleCopy = async (code, index) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedIndex(index);
+      setTimeout(() => setCopiedIndex(null), 2000);
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
+  };
+
   return (
-    <div className="prose prose-invert max-w-none">
+    <div className="max-w-none break-words text-sm leading-6 text-white">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
+          // 🔥 Headings
+          h1: ({ children }) => (
+            <h1 className="text-xl font-semibold mt-4 mb-2">{children}</h1>
+          ),
+          h2: ({ children }) => (
+            <h2 className="text-lg font-semibold mt-3 mb-1">{children}</h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="text-base font-medium mt-2 mb-1">{children}</h3>
+          ),
+
+          // 🔥 Text
+          strong: ({ children }) => (
+            <strong className="text-blue-400 font-semibold">
+              {children}
+            </strong>
+          ),
+
+          // 🔥 Lists
+          ul: ({ children }) => (
+            <ul className="pl-5 mb-2 space-y-1 list-disc">{children}</ul>
+          ),
+          ol: ({ children }) => (
+            <ol className="pl-5 mb-2 space-y-1 list-decimal">{children}</ol>
+          ),
+          li: ({ children }) => <li>{children}</li>,
+
+          // 🔥 Blockquote
+          blockquote: ({ children }) => (
+            <blockquote className="border-l-4 border-blue-500 pl-3 italic text-gray-400 my-2">
+              {children}
+            </blockquote>
+          ),
+
+          // 🔥 Tables
+          table: ({ children }) => (
+            <div className="overflow-x-auto my-4">
+              <table className="w-full border border-gray-700 rounded-lg">
+                {children}
+              </table>
+            </div>
+          ),
+          th: ({ children }) => (
+            <th className="bg-gray-800 px-3 py-2 text-left border-b border-gray-700">
+              {children}
+            </th>
+          ),
+          td: ({ children }) => (
+            <td className="px-3 py-2 border-b border-gray-700">
+              {children}
+            </td>
+          ),
+
+          // 🔥 Code block + inline code
           code({ inline, className, children }) {
             const match = /language-(\w+)/.exec(className || "");
+            const code = String(children).replace(/\n$/, "");
+            const index = code; // stable unique key
 
             if (!inline && match) {
               return (
-                <CodeBlock
-                  language={match[1]}
-                  value={String(children).replace(/\n$/, "")}
-                />
+                <div className="relative my-4 rounded-xl overflow-hidden border border-gray-700">
+                  
+                  {/* Header */}
+                  <div className="flex justify-between items-center bg-gray-900 px-4 py-2 text-xs text-gray-400">
+                    <span>{match[1]}</span>
+
+                    <button
+                      onClick={() => handleCopy(code, index)}
+                      className="flex items-center gap-1 hover:text-white"
+                    >
+                      {copiedIndex === index ? (
+                        <>
+                          <Check size={14} /> Copied
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={14} /> Copy
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Code */}
+                  <SyntaxHighlighter
+                    style={oneDark}
+                    language={match[1]}
+                    PreTag="div"
+                    customStyle={{
+                      margin: 0,
+                      padding: "16px",
+                      background: "#020617",
+                    }}
+                  >
+                    {code}
+                  </SyntaxHighlighter>
+                </div>
               );
             }
 
             return (
-              <code className="bg-gray-800 text-green-300 px-2 py-0.5 rounded-md text-sm font-mono">
+              <code className="bg-gray-800 text-green-400 px-1.5 py-[2px] rounded">
                 {children}
               </code>
             );
@@ -33,81 +133,6 @@ export default function MarkdownRenderer({ content }) {
       >
         {content}
       </ReactMarkdown>
-    </div>
-  );
-}
-
-function CodeBlock({ language, value }) {
-  const [copied, setCopied] = useState(false);
-  const [expanded, setExpanded] = useState(true);
-
-  const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(value);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-
-  return (
-    <div className="relative my-5 rounded-2xl overflow-hidden border border-gray-700 shadow-xl 
-                    transition hover:shadow-2xl animate-fadeIn">
-      
-      {/* Header */}
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-xs text-gray-400">
-        
-        {/* Language Badge */}
-        <span className="uppercase tracking-wider bg-gray-800 px-2 py-1 rounded">
-          {language}
-        </span>
-
-        <div className="flex items-center gap-2">
-          
-          {/* Expand / Collapse */}
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="p-1 hover:bg-gray-700 rounded transition"
-          >
-            {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-          </button>
-
-          {/* Copy Button */}
-          <button
-            onClick={copyToClipboard}
-            className="flex items-center gap-1 px-2 py-1 rounded bg-gray-700 hover:bg-gray-600 text-white transition relative"
-          >
-            {copied ? <Check size={14} /> : <Copy size={14} />}
-            {copied ? "Copied" : "Copy"}
-          </button>
-        </div>
-      </div>
-
-      {expanded && (
-        <div className="overflow-x-auto relative">
-          <SyntaxHighlighter
-            language={language}
-            style={oneDark}
-            showLineNumbers
-            wrapLines
-            customStyle={{
-              margin: 0,
-              background: "#0f172a",
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "13.5px",
-              lineHeight: "1.6",
-              padding: "16px",
-            }}
-            lineNumberStyle={{
-              color: "#6b7280",
-              marginRight: "12px",
-            }}
-          >
-            {value}
-          </SyntaxHighlighter>
-
-          {!expanded && (
-            <div className="absolute bottom-0 left-0 w-full h-16 bg-linear-to-t from-black/80 to-transparent" />
-          )}
-        </div>
-      )}
     </div>
   );
 }
