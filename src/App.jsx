@@ -12,6 +12,7 @@ import Ai_ChatBot from "./components/Ai_ChatBot";
 import "animate.css";
 import Services from "./components/Services";
 import { Helmet } from "react-helmet-async";
+import Tools from "./components/Tools";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
         <Navebar />
         <Hero />
         <Tech />
+        <Tools />
         <ProjectHeading />
 
         <div className="grid md:grid-cols-2 gap-x-30 justify-center items-center">
