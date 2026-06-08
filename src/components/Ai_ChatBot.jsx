@@ -3,10 +3,11 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { GiRobotHelmet } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import sendMessage from "../services/chatApi";
-import MarkChat from "./MarkDownRender";
+import ChatMarkdownSupport from "./MarkDownRender";
+import { ChevronRight, LoaderCircle, Send, Trash } from "lucide-react";
 
 const Ai_ChatBot = () => {
-  const [show, setShow] = useState(false);
+  const [showChat, setShowChat] = useState(false);
   const [message, setMessage] = useState([]);
   const [loader, setLoader] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -84,54 +85,65 @@ const Ai_ChatBot = () => {
   };
 
   return (
-    <div>
-      <button
-        onClick={() => setShow(!show)}
-        className="cursor-pointer fixed bottom-5 right-5"
-      >
-        <img
-          className=" w-15 h-15 object-cover rounded-full animate__animated hover:-translate-y-2 transition-all duration-300 animate__shakeX z-40"
-          src="/message.gif"
-        />
-      </button>
-
-      {show && (
-        <div className="animate__animated  shadow-white rounded-t-lg animate__fadeIn rounded-b-lg md:w-90 w-full md:h-108 h-screen shadow-sm  fixed z-120 md:bottom-25 bottom-0 md:right-20 right-0 bg-white overflow-hidden">
+      <>
+        {!showChat && (
           <div
-            className={`flex justify-between items-center bg-black text-white ${loader ? "p-2" : "p-4"} relative`}
+            className="fixed bottom-5 right-5 z-50"
+            onClick={() => setShowChat(true)}
           >
-            <div className="flex flex-col justify-center items-center">
-              <div>
-                <h1 className="animate__animated animate__slideInLeft">
-                  Akram AI
-                </h1>
-                <div className="w-3 h-3 rounded-full bg-green-500 border-white border absolute top-3 animate__animated animate__fadeIn animate__infinite  left-22"></div>
-              </div>
-              {loader && (
-                <span className="text-[10px] animate-pulse">Typing...</span>
-              )}
-            </div>
-            <div className="flex items-center gap-3">
-              <GiRobotHelmet
-                size={25}
-                className="animate__animated animate__slideInRight"
-              />
-              <IoCloseSharp
-                size={25}
-                className="cursor-pointer"
-                onClick={() => setShow(false)}
-              />
-            </div>
+            <img
+              src="/robot.png"
+              width={60}
+              height={60}
+              alt="robot"
+              className="rounded-full border border-gray-300 shadow-xl cursor-pointer hover:scale-110 transition-all duration-300"
+            />
           </div>
+        )}
 
-          <div
-            className="h-150 md:h-83 p-3 overflow-y-scroll hide-scrollbar 
-          "
-          >
-            {message.length === 0 && (
+        <div
+          className={`fixed top-0 right-0 z-100 h-screen bg-white shadow-2xl border-l border-gray-200 transition-transform duration-300
+      ${showChat ? "translate-x-0" : "translate-x-full"}
+      w-full md:w-105`}
+        >
+          <div className="flex flex-col h-full">
+            {/* Header */}
+            <div className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-linear-to-br from-black/70 via-black/50 to-black/70 flex justify-center items-center text-white font-bold text-xl shadow-lg">
+                  A
+                </div>
+
+                <div>
+                  <h2 className="font-semibold text-lg">Akram AI</h2>
+
+                  <div className="flex items-center gap-1">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+
+                    <p className="text-xs text-gray-500">
+                      {loader ? "Typing..." : "Online • Always here to help"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setShowChat(false)}
+                  className="p-2 rounded-lg border border-gray-200 hover:bg-gray-100 cursor-pointer"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-4 hide-scrollbar space-y-4 bg-gray-50">
+
+               {message.length === 0 && (
               <div className="flex justify-center items-center flex-col mt-10 px-4">
                 <div
-                  className="bg-white/80 backdrop-blur-lg border border-gray-200 
+                  className="bg-white/80 backdrop-blur-lg border border-gray-200
                   p-6 rounded-2xl shadow-xl max-w-md w-full text-center
                   hover:scale-[1.02] transition-all duration-300"
                 >
@@ -171,71 +183,67 @@ const Ai_ChatBot = () => {
               </div>
             )}
 
-            {message.map((msg, i) => {
-              const isUser = msg.role === "user";
 
-              return (
+              {message.map((msg, ind) => (
                 <div
-                  key={i}
-                  className={`flex text-sm  ${
-                    isUser
-                      ? "justify-end items-center"
-                      : "justify-start items-center"
+                  key={ind}
+                  className={`flex ${
+                    msg?.role === "user" ? "justify-end" : "justify-start"
                   }`}
                 >
                   <div
-                    className={`max-w-[80%] whitespace-pre-wrap p-2 mb-2 ${
-                      isUser
-                        ? "bg-black text-white rounded-b-lg rounded-tl-lg"
-                        : "bg-black/50 text-white rounded-t-lg rounded-br-lg"
-                    }`}
+                    className={`max-w-[85%] px-4 py-1 rounded-2xl text-sm md:text-base whitespace-pre-wrap shadow-sm
+                ${
+                  msg?.role === "user"
+                    ? "bg-gray-900 text-white rounded-br-md"
+                    : "bg-white text-gray-800 rounded-bl-md"
+                }`}
                   >
-                    <MarkChat content={msg.content} />
+                    <ChatMarkdownSupport
+                      content={
+                        typeof msg?.content === "string"
+                          ? msg?.content
+                          : JSON.stringify(msg?.content)
+                      }
+                    />
                   </div>
                 </div>
-              );
-            })}
+              ))}
 
-            {loader && (
-              <div className="flex gap-2">
-                <span className="animate-bounce">●</span>
-                <span className="animate-bounce transition-all duration-300 delay-100">
-                  ●
-                </span>
-                <span className="animate-bounce transition-all duration-300 delay-200">
-                  ●
-                </span>
-              </div>
-            )}
-
-            <div ref={messageEndRef}></div>
-          </div>
-
-          <div className="flex items-center  w-full md:w-90 gap-2 p-2 justify-between bg-black fixed bottom-0 md:bottom-24 md:rounded-b-lg">
-            <input
-              type="text"
-              value={inputValue}
-              onKeyDown={handelKeyPress}
-              placeholder="ask anythink about me..."
-              onChange={(e) => setInputValue(e.target.value)}
-              className="w-full outline-none border rounded-md p-2.5 bg-white animate__animated animate__slideInUp text-sm"
-            />
-
-            <button
-              onClick={hendelSend}
-              disabled={!inputValue.trim() || loader}
-              className="py-2 rounded-md px-3 disabled:cursor-not-allowed animate__animated animate__slideInUp bg-white disabled:opacity-80 opacity-100 text-black cursor-pointer"
-            >
-              {loader ? (
-                <div className=" animate-spin w-5 h-5 rounded-full border-2 bg-white border-t-white border-black"></div>
-              ) : (
-                <RiSendPlaneFill size={25} />
+              {loader && (
+                <div className="flex items-center gap-2 text-gray-500">
+                  <LoaderCircle className="animate-spin" size={18} />
+                  <span>Typing...</span>
+                </div>
               )}
-            </button>
+
+              <div ref={messageEndRef}></div>
+            </div>
+
+            {/* Input */}
+            <div className="border-t bg-white border-gray-300 p-3">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handelKeyPress}
+                  placeholder="Ask about Akram Ansari..."
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-xl outline-none focus:right-1 focus:border-gray-500"
+                />
+
+                <button
+                  onClick={hendelSend}
+                  disabled={!inputValue.trim()}
+                  className="h-12 w-12 rounded-xl bg-linear-to-br from-black/70 via-black/50 to-black/70 text-white flex items-center justify-center shadow-lg hover:scale-105 transition disabled:opacity-50 cursor-pointer"
+                >
+                  <Send size={18} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      )}
-    </div>
+      </>
   );
 };
 
