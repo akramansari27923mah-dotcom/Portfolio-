@@ -220,7 +220,7 @@ const Ai_ChatBot = () => {
               <div ref={messageEndRef}></div>
             </div>
 
-            {/* Input */}
+          
             <div className="border-t bg-white border-gray-300 p-3">
               <div className="flex items-center gap-2">
                 <input

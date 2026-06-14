@@ -14,7 +14,7 @@ const Navebar = () => {
 
     const downloadResume = () => {
         const link = document.createElement('a')
-        link.href = '/Resume.pdf'
+        link.href = '/AkramAnsariResume.pdf'
         link.download = 'Resume-akram-ansari.pdf'
         link.click()
     }   

@@ -1,5 +1,12 @@
 const projectData = [
     {
+        Image: 'grammar.png',
+        title: 'Grammar Checer Ai 🤖',
+        desc: 'Grammar Checker AI is an AI-powered web application that helps users improve their writing by detecting grammar mistakes, spelling errors, punctuation issues, and sentence structure problems. Users can enter any text and receive instant corrections along with suggestions to make their writing clearer and more professional.',
+        link: 'https://grammarcheckerai.vercel.app/',
+        tag1: 'Next.js'
+    },
+    {
         Image: 'notecraft.png',
         title: 'NoteCraft Ai 🤖',
         desc: 'NotesCraft AI is an intelligent note-taking platform where users can upload their own PDF notes and let AI automatically generate structured notes and interactive quizzes. It helps in simplifying learning by converting complex content into easy-to-understand summaries and practice questions. With a clean and user-friendly interface, NotesCraft AI makes studying smarter, faster, and more engaging.',
