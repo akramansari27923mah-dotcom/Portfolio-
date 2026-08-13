@@ -13,8 +13,12 @@ import "animate.css";
 import Services from "./components/Services";
 import { Helmet } from "react-helmet-async";
 import Tools from "./components/Tools";
+import Resume from "./components/Resume";
+import { useState } from "react";
 
 const App = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   return (
     <>
       <Helmet>
@@ -38,8 +42,12 @@ const App = () => {
       </div>
       <div className="fixed inset-0 -z-10 h-screen w-full  items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
       <main className="flex flex-col items-center justify-center px-4 hide-scrollbar overflow-x-hidden">
-        <Navebar />
+        <Navebar
+          isResumeOpen={isResumeOpen}
+          setIsResumeOpen={setIsResumeOpen}
+        />
         <Hero />
+        {isResumeOpen && <Resume setIsResumeOpen={setIsResumeOpen} isResumeOpen={isResumeOpen} />}
         <Tech />
         <Tools />
         <ProjectHeading />
@@ -64,7 +72,6 @@ const App = () => {
         <Certificate />
         <Contact />
         <Footer />
-
         <Ai_ChatBot />
       </main>
     </>
