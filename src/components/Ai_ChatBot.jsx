@@ -49,7 +49,7 @@ const Ai_ChatBot = () => {
         ...prev,
         {
           role: "assistant",
-          content: "❌ Error: Server down ya API fail ho gaya",
+          content: "❌ Error: Server is busy right now please try again.",
         },
       ]);
     } finally {
@@ -211,8 +211,8 @@ const Ai_ChatBot = () => {
               ))}
 
               {loader && (
-                <div className="flex items-center gap-2 text-gray-500">
-                  <LoaderCircle className="animate-spin" size={18} />
+                <div className="flex items-center gap-2 text-gray-600 w-fit p-1 px-2 rounded-2xl text-xs animate-pulse">
+                  <LoaderCircle className="animate-spin" size={13} />
                   <span>Typing...</span>
                 </div>
               )}
